@@ -41,11 +41,16 @@ class Gameplay extends Component {
         this.props.dispatch({ type: 'GET_EVERYTHING' });
         console.log("getting everything")
     }
+    gatherSunlight = () => {
+        console.log("gathering Sunlight")
+        this.props.dispatch({type: 'GATHER_SUNLIGHT', payload: this.props.user.click_gather_sunlight})
+  }
+
 
     render() {
-        setInterval(() => {
-            console.log('This will run every ten seconds!');
-        }, 10000);
+        // setInterval(() => {
+        //     this.gatherSunlight();
+        // }, 10000);
 
         return (
             <>
@@ -61,9 +66,7 @@ class Gameplay extends Component {
                     <div className="column" id="left-container">
                         <h1>Resources </h1>
                         <span> Current Sunlight: <div>
-                            {this.props.storeEverything.map((item) =>
-                                <span>{item.resource_sunlight}</span>
-                            )}
+                            <p>{this.props.storeEverything.resource_sunlight}</p>
                         </div></span>
 
                     </div>
@@ -72,7 +75,7 @@ class Gameplay extends Component {
                         <h1>Buttons </h1>
                         <button onClick={this.changeText}> test text</button>
                         <button onClick={this.changeTextTwo}> test text Two</button>
-                        <button> gather sunlight </button>
+                        <button onClick={this.gatherSunlight}> gather sunlight </button>
                     </div>
 
                     <div className="column" id="right-container">

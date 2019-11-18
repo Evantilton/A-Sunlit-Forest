@@ -11,12 +11,17 @@ const router = express.Router();
 router.get('/',  (req, res) => {
     const queryText = 'SELECT * FROM "user" WHERE "id" = $1';
     pool.query(queryText, [req.user.id])
-      .then((result) => { res.send(result.rows); })
+      .then((result) => 
+      
+      { res.send(result.rows); })
       .catch((err) => {
         console.log('Error completing SELECT everything query', err);
         res.sendStatus(500);
       });
   });
+///////////////////////////////////////////////////////////////////////////////
+
+
 /**
  * POST route template
  */
