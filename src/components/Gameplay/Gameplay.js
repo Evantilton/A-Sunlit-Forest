@@ -72,6 +72,7 @@ class Gameplay extends Component {
                         <h1>Buttons </h1>
                         <button onClick={this.changeText}> test text</button>
                         <button onClick={this.changeTextTwo}> test text Two</button>
+                        <button> gather sunlight </button>
                     </div>
 
                     <div className="column" id="right-container">
