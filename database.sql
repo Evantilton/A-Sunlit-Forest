@@ -5,6 +5,11 @@
 -- Otherwise you will have errors!
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
+    "username" VARCHAR (80) UNIQUE,
+    "password" VARCHAR (100),
+    "isAdmin" BOOLEAN DEFAULT false,
+    "resource_sunlight" INTEGER DEFAULT 0,
+    "click_gather_sunlight" INTEGER DEFAULT 1,
+    "per_second_gather_sunlight" INTEGER DEFAULT 1,
+    "resource_sap" INTEGER DEFAULT 0,
 );
