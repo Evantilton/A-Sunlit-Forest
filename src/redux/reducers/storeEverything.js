@@ -7,6 +7,8 @@ const storeEverything = (state = {}, action) => {
       return action.payload[0];
     case 'GATHER_SUNLIGHT':
       return {...state,resource_sunlight: state.resource_sunlight+action.payload};
+    case 'GATHER_SUNLIGHT_MAX':
+      return{...state, resource_sunlight: action.payload}
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Gameplay.css'
 
+
 import { connect } from 'react-redux';
 
 class Gameplay extends Component {
@@ -10,6 +11,12 @@ class Gameplay extends Component {
 
     componentDidMount() {
         this.getEverything();
+        setInterval(() => {
+            this.gatherSunlight();
+        }, 1000);
+        setInterval(() => {
+            this.saveFunction();
+        }, 100000);
     }
 
     changeText = (event) => {
@@ -33,8 +40,13 @@ class Gameplay extends Component {
     }
     gatherSunlight = () => {
         console.log("gathering Sunlight")
+        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
+            // this.props.dispatch({type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max})
+        // console.log('hello')
+        } else
         this.props.dispatch({type: 'GATHER_SUNLIGHT', payload: this.props.storeEverything.click_gather_sunlight})
   }
+
     saveFunction = () => {
         console.log("savefunction hit: saving the current gamestate");
         console.log("this is what it's sending:", this.props.storeEverything)
@@ -42,17 +54,12 @@ class Gameplay extends Component {
     }
 
     render() {
-        // setInterval(() => {
-        //     this.gatherSunlight();
-        // }, 10000);
 
         return (
             <>
                 <header>
                     <button onClick={this.saveFunction}> save </button>
-                    <button>wipe</button>
                     <button>delete</button>
-                    <button>options</button>
 
                 </header>
 
@@ -60,9 +67,8 @@ class Gameplay extends Component {
                     <div className="column" id="left-container">
                         <h1>Resources </h1>
                         <span> Current Sunlight: <div>
-                            <p>{this.props.storeEverything.resource_sunlight}</p>
+                            <p>{this.props.storeEverything.resource_sunlight}/{this.props.storeEverything.resource_sunlight_max}</p>
                         </div></span>
-
                     </div>
 
                     <div className="column" id="middle-container">
