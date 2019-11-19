@@ -22,16 +22,6 @@ class Gameplay extends Component {
         }
 
 
-    changeTextTwo = (event) => {
-        console.log("in Changetexttwo")
-        this.setState({
-            text: "yaaaaaaa",
-        })
-        console.log("current state.text", this.state.text)
-        this.addText();
-    }
-
-
     addText = (event) => {
         console.log("in addtext")
         this.props.dispatch({ type: "TEST_TEXT", payload: this.state.text })
@@ -43,9 +33,13 @@ class Gameplay extends Component {
     }
     gatherSunlight = () => {
         console.log("gathering Sunlight")
-        this.props.dispatch({type: 'GATHER_SUNLIGHT', payload: this.props.user.click_gather_sunlight})
+        this.props.dispatch({type: 'GATHER_SUNLIGHT', payload: this.props.storeEverything.click_gather_sunlight})
   }
-
+    saveFunction = () => {
+        console.log("savefunction hit: saving the current gamestate");
+        console.log("this is what it's sending:", this.props.storeEverything)
+        this.props.dispatch({ type: 'SAVE_EVERYTHING', payload: this.props.storeEverything});
+    }
 
     render() {
         // setInterval(() => {
@@ -55,7 +49,7 @@ class Gameplay extends Component {
         return (
             <>
                 <header>
-                    <button>save</button>
+                    <button onClick={this.saveFunction}> save </button>
                     <button>wipe</button>
                     <button>delete</button>
                     <button>options</button>
@@ -74,7 +68,6 @@ class Gameplay extends Component {
                     <div className="column" id="middle-container">
                         <h1>Buttons </h1>
                         <button onClick={this.changeText}> test text</button>
-                        <button onClick={this.changeTextTwo}> test text Two</button>
                         <button onClick={this.gatherSunlight}> gather sunlight </button>
                     </div>
 
@@ -82,7 +75,6 @@ class Gameplay extends Component {
                         <div id="time"></div>
                         <h1>Text </h1>
                         <ul>
-                                
                                 {this.props.textTest.map((hello) =>
                                 <li>{hello}</li>
                                 )}

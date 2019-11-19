@@ -10,6 +10,8 @@ function* getEverything(action) {
         console.log('error fetching getEverythingSaga', error);
     }
 }
+
+
 function* getEverythingSaga() {
     yield takeLatest('GET_EVERYTHING', getEverything);
   }
