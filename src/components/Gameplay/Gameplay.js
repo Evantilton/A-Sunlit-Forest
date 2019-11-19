@@ -46,6 +46,12 @@ class Gameplay extends Component {
         } else
         this.props.dispatch({type: 'GATHER_SUNLIGHT', payload: this.props.storeEverything.click_gather_sunlight})
   }
+    convertSap = () => {
+        console.log ("convertingSap")
+        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sap_cost) {
+            this.props.dispatch({type: 'convertSap', payload: this.props.storeEverything})
+        }
+    }
 
     saveFunction = () => {
         console.log("savefunction hit: saving the current gamestate");
@@ -66,14 +72,17 @@ class Gameplay extends Component {
                 <div id="gameplay-container">
                     <div className="column" id="left-container">
                         <h1>Resources </h1>
-                        <span> Current Sunlight: <div>
-                            <p>{this.props.storeEverything.resource_sunlight}/{this.props.storeEverything.resource_sunlight_max}</p>
-                        </div></span>
+                        <span> 
+                            <p>Current Sunlight: {this.props.storeEverything.resource_sunlight}/{this.props.storeEverything.resource_sunlight_max}</p>
+                            <p>Current Sap: {this.props.storeEverything.resource_sap}/{this.props.storeEverything.resource_sap_max} </p>
+                            <button onClick={this.craftSap}> Convert Sunlight into Sap </button>
+                            <p>Current Science: {this.props.storeEverything.resource_science}/{this.props.storeEverything.resource_science_max} </p>
+                            <p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
+                        </span>
                     </div>
 
                     <div className="column" id="middle-container">
                         <h1>Buttons </h1>
-                        <button onClick={this.changeText}> test text</button>
                         <button onClick={this.gatherSunlight}> gather sunlight </button>
                     </div>
 
