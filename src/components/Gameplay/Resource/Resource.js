@@ -9,9 +9,9 @@ class Resource extends Component {
 //function call
     buySap = () => {
         console.log("Buying Sap")
-        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sap_price
+        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sap_cost
             && this.props.storeEverything.resource_sap < this.props.storeEverything.resource_sap_max) {
-            this.props.dispatch({ type: 'BUY_SAP', payload: this.props.storeEverything.resource_sap_price })
+            this.props.dispatch({ type: 'BUY_SAP', payload: this.props.storeEverything.resource_sap_cost })
         }
     }
 
@@ -41,9 +41,7 @@ class Resource extends Component {
             return <p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
         };
     }
-   
-
-
+    
     render() {
 
         return (

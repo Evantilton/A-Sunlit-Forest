@@ -21,8 +21,6 @@ router.get('/',  (req, res) => {
   });
 
 router.put('/', (req, res) => {
-  console.log('this is req.body.resource_sunlight', req.body.resource_sunlight)
-  
   const queryText =
     `UPDATE "user" 
       SET 
@@ -50,23 +48,20 @@ router.put('/', (req, res) => {
   "research_irrigation_cost"=$23,
   "research_agriculture_cost"=$24,
   "upgrade_roots"=$25,
-  "upgrade_chrolophyll"=$26,
+  "upgrade_chlorophyll"=$26,
   "upgrade_bark"=$27,
   "upgrade_roots_cost"=$28,
-  "upgrade_chrolophyll_cost"=$29,
+  "upgrade_chlorophyll_cost"=$29,
   "upgrade_bark_cost"=$30,
   "upgrade_roots_text" =$31,
-  "upgrade_chrolophyll_text" =$32,
+  "upgrade_chlorophyll_text" =$32,
   "upgrade_bark_text" =$33,
   "upgrade_roots_reveal"=$34,
   "upgrade_chlorophyll_reveal"=$35,
   "upgrade_bark_reveal" =$36,
   "resource_sunlight"=$37,
-  "resource_sap_price"=$38,
-  "resource_sunlight_reveal"=$39,
-  "upgrade_roots_price"=$40,
-  "upgrade_chrolophyll_price"=$41,
-  "upgrade_bark_price"=$42
+  "resource_sap_cost"=$38,
+  "resource_sunlight_reveal"=$39
   
     WHERE "id"=$1`;
   const values = [
@@ -95,23 +90,20 @@ router.put('/', (req, res) => {
     req.body.research_irrigation_cost,
     req.body.research_agriculture_cost,
     req.body.upgrade_roots,
-    req.body.upgrade_chrolophyll,
+    req.body.upgrade_chlorophyll,
     req.body.upgrade_bark,
     req.body.upgrade_roots_cost,
-    req.body.upgrade_chrolophyll_cost,
+    req.body.upgrade_chlorophyll_cost,
     req.body.upgrade_bark_cost,
     req.body.upgrade_roots_text,
-    req.body.upgrade_chrolophyll_text,
+    req.body.upgrade_chlorophyll_text,
     req.body.upgrade_bark_text,
     req.body.upgrade_roots_reveal,
     req.body.upgrade_chlorophyll_reveal,
     req.body.upgrade_bark_reveal,
     req.body.resource_sunlight,
-    req.body.resource_sap_price,
-    req.body.resource_sunlight_reveal,
-    req.body.upgrade_roots_price,
-    req.body.upgrade_chrolophyll_price,
-    req.body.upgrade_bark_price
+    req.body.resource_sap_cost,
+    req.body.resource_sunlight_reveal
   ];
 
   pool.query(queryText, values)
