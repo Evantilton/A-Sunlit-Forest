@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 class Tabs extends Component {
 
     componentDidMount() {
-        setInterval(() => {
-            this.gatherSunlight();
-        }, 1000);
+        // setInterval(() => {
+        //     this.gatherSunlight();
+        // }, 1000);
     }
 
     gatherSunlight = () => {

@@ -15,8 +15,8 @@ CREATE TABLE "user" (
   "resource_sunlight_text" VARCHAR DEFAULT 0,
   "resource_sap_text" VARCHAR DEFAULT 'resource_sap_text',
   "resource_science_text" VARCHAR DEFAULT 'resource_science_text',
-  "resource_sunlight_max" INTEGER DEFAULT 100,
-  "resource_sap_max" INTEGER DEFAULT 100,
+  "resource_sunlight_max" INTEGER DEFAULT 1000,
+  "resource_sap_max" INTEGER DEFAULT 200,
   "resource_treefolk_max" INTEGER DEFAULT 100,
   "resource_science_max" INTEGER DEFAULT 100,
   "resource_sap_reveal" BOOLEAN DEFAULT false,
@@ -44,5 +44,9 @@ CREATE TABLE "user" (
   "upgrade_chlorophyll_reveal" BOOLEAN DEFAULT false,
   "upgrade_bark_reveal" BOOLEAN DEFAULT false,
    "resource_sunlight" INTEGER DEFAULT 0,
-  "resource_sap_price" INTEGER DEFAULT 100
+  "resource_sap_price" INTEGER DEFAULT 100,
+  "resource_sunlight_reveal" BOOLEAN DEFAULT false,
+  "upgrade_roots_price" INTEGER DEFAULT 5,
+  "upgrade_chrolophyll_price" INTEGER DEFAULT 5,
+  "upgrade_bark_price" INTEGER DEFAULT 5
 );

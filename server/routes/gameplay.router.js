@@ -62,7 +62,12 @@ router.put('/', (req, res) => {
   "upgrade_chlorophyll_reveal"=$35,
   "upgrade_bark_reveal" =$36,
   "resource_sunlight"=$37,
-  "resource_sap_price"=$38
+  "resource_sap_price"=$38,
+  "resource_sunlight_reveal"=$39,
+  "upgrade_roots_price"=$40,
+  "upgrade_chrolophyll_price"=$41,
+  "upgrade_bark_price"=$42
+  
     WHERE "id"=$1`;
   const values = [
     req.user.id,
@@ -103,6 +108,10 @@ router.put('/', (req, res) => {
     req.body.upgrade_bark_reveal,
     req.body.resource_sunlight,
     req.body.resource_sap_price,
+    req.body.resource_sunlight_reveal,
+    req.body.upgrade_roots_price,
+    req.body.upgrade_chrolophyll_price,
+    req.body.upgrade_bark_price
   ];
 
   pool.query(queryText, values)
