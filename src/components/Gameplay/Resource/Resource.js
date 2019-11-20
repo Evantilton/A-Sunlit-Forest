@@ -18,7 +18,7 @@ class Resource extends Component {
     //Conditional Displays//
     displaySunlight = () => {
         if (this.props.storeEverything.resource_sunlight_reveal) {
-            return <p>Current Sunlight: {this.props.storeEverything.resource_sunlight}/{this.props.storeEverything.resource_sunlight_max}</p>
+            return <div><p>Current Sunlight: {this.props.storeEverything.resource_sunlight}/{this.props.storeEverything.resource_sunlight_max} </p>Sunlight Per Click: {this.props.storeEverything.click_gather_sunlight}<p></p> </div>   
         };
     }
     displaySap = () => {
@@ -41,7 +41,7 @@ class Resource extends Component {
             return <p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
         };
     }
-    
+
     render() {
 
         return (

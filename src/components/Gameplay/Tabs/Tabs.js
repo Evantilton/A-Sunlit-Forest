@@ -26,14 +26,14 @@ class Tabs extends Component {
     }
 
     upgradeChlorophyll = () => {
-        if (this.props.storeEverything.resource_sap >= this.props.storeEverything.resource_chlorophyll_cost) {
+        if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_chlorophyll_cost) {
             this.props.dispatch({ type: 'UPGRADE_CHLOROPHYLL'})
         } 
     }
     //conditional displays//
     displayChlorophyll = () => {
         if (this.props.storeEverything.upgrade_chlorophyll_reveal) {
-                return <button onClick={this.upgradeChlorophyll}> Upgrade Chlorophyll, cost: sap {this.props.storeEverything.upgrade_chlorophyll_cost} </button>
+                return <button onClick={this.upgradeChlorophyll}> Upgrade Chlorophyll, Level: {this.props.storeEverything.upgrade_chlorophyll} cost: sap {this.props.storeEverything.upgrade_chlorophyll_cost} </button>
             };
         }
     

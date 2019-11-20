@@ -61,7 +61,27 @@ router.put('/', (req, res) => {
   "upgrade_bark_reveal" =$36,
   "resource_sunlight"=$37,
   "resource_sap_cost"=$38,
-  "resource_sunlight_reveal"=$39
+  "resource_sunlight_reveal"=$39,
+  "resource_population" =$40,
+  "resource_population_reveal" =$41,
+  "resource_population_max" =$42,
+  "resource_population_modifier" =$43,
+  "resource_scientist" =$44,
+  "resource_scientist_reveal" =$45,
+  "resource_scientist_max" =$46,
+  "resource_scientist_modifier" =$47,
+  "resource_builder" =$48,
+  "resource_builder_reveal" =$49,
+  "resource_builder_max" =$50,
+  "resource_builder_modifier" =$51,
+  "resource_explorer" =$52,
+  "resource_explorer_reveal" =$53,
+  "resource_explorer_max" =$54,
+  "resource_explorer_modifier" =$55,
+  "resource_farmer" =$56,
+  "resource_farmer_reveal" =$57,
+  "resource_farmer_max" =$58,
+  "resource_farmer_modifier" =$59
   
     WHERE "id"=$1`;
   const values = [
@@ -103,7 +123,27 @@ router.put('/', (req, res) => {
     req.body.upgrade_bark_reveal,
     req.body.resource_sunlight,
     req.body.resource_sap_cost,
-    req.body.resource_sunlight_reveal
+    req.body.resource_sunlight_reveal,
+    req.body.resource_population,
+    req.body.resource_population_reveal,
+    req.body.resource_population_max,
+    req.body.resource_population_modifier,
+    req.body.resource_scientist,
+    req.body.resource_scientist_reveal,
+    req.body.resource_scientist_max,
+    req.body.resource_scientist_modifier,
+    req.body.resource_builder,
+    req.body.resource_builder_reveal,
+    req.body.resource_builder_max,
+    req.body.resource_builder_modifier,
+    req.body.resource_explorer,
+    req.body.resource_explorer_reveal,
+    req.body.resource_explorer_max,
+    req.body.resource_explorer_modifier,
+    req.body.resource_farmer,
+    req.body.resource_farmer_reveal,
+    req.body.resource_farmer_max,
+    req.body.resource_farmer_modifier
   ];
 
   pool.query(queryText, values)
