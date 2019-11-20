@@ -15,7 +15,7 @@ CREATE TABLE "user" (
   "resource_sunlight_text" VARCHAR DEFAULT 0,
   "resource_sap_text" VARCHAR DEFAULT 'resource_sap_text',
   "resource_science_text" VARCHAR DEFAULT 'resource_science_text',
-  "resource_sunlight_max" INTEGER DEFAULT 1000,
+  "resource_sunlight_max" INTEGER DEFAULT 200,
   "resource_sap_max" INTEGER DEFAULT 200,
   "resource_treefolk_max" INTEGER DEFAULT 100,
   "resource_science_max" INTEGER DEFAULT 100,

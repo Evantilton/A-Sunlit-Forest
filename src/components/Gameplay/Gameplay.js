@@ -8,9 +8,11 @@ import Header from './Header/Header';
 import { connect } from 'react-redux';
 
 class Gameplay extends Component {
-
     componentDidMount() {
         this.getEverything();
+        setInterval(() => {
+            this.saveFunction();
+        }, 1000);
     }
 
     getEverything() {
@@ -18,13 +20,17 @@ class Gameplay extends Component {
         console.log("getting everything")
     }
 
+    saveFunction = () => {
+        console.log("savefunction hit: saving the current gamestate");
+        this.props.dispatch({ type: 'SAVE_EVERYTHING', payload: this.props.storeEverything});
+    }
     render() {
 
         return (
             <>
-                <Header />
+                <Header saveFunction={this.saveFunction}/>
                 <div id="gameplay-container">
-                    <Resource />
+                    <Resource/>
                     <Tabs />
                     <Textbox />
                 </div>
