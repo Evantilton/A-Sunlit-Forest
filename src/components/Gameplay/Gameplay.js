@@ -41,17 +41,24 @@ class Gameplay extends Component {
     gatherSunlight = () => {
         console.log("gathering Sunlight")
         if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
-            // this.props.dispatch({type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max})
-        // console.log('hello')
+            this.props.dispatch({type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max})
+        
         } else
         this.props.dispatch({type: 'GATHER_SUNLIGHT', payload: this.props.storeEverything.click_gather_sunlight})
   }
-    convertSap = () => {
-        console.log ("convertingSap")
-        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sap_cost) {
-            this.props.dispatch({type: 'convertSap', payload: this.props.storeEverything})
+    buySap = () => {
+        console.log ("Buying Sap")
+        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sap_price 
+            && this.props.storeEverything.resource_sap < this.props.storeEverything.resource_sap_max) {
+            this.props.dispatch({type: 'BUY_SAP', payload: this.props.storeEverything.resource_sap_price})
         }
     }
+        
+    upgradeRoots = () => {
+        console.log ("upgrading Roots")
+        
+    }
+    
 
     saveFunction = () => {
         console.log("savefunction hit: saving the current gamestate");
@@ -75,7 +82,7 @@ class Gameplay extends Component {
                         <span> 
                             <p>Current Sunlight: {this.props.storeEverything.resource_sunlight}/{this.props.storeEverything.resource_sunlight_max}</p>
                             <p>Current Sap: {this.props.storeEverything.resource_sap}/{this.props.storeEverything.resource_sap_max} </p>
-                            <button onClick={this.craftSap}> Convert Sunlight into Sap </button>
+                            <button onClick={this.buySap}> Convert Sunlight into Sap </button>
                             <p>Current Science: {this.props.storeEverything.resource_science}/{this.props.storeEverything.resource_science_max} </p>
                             <p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
                         </span>
@@ -84,6 +91,8 @@ class Gameplay extends Component {
                     <div className="column" id="middle-container">
                         <h1>Buttons </h1>
                         <button onClick={this.gatherSunlight}> gather sunlight </button>
+                        <button onClick={this.upgradeRoots}> Expand Roots </button>
+                    
                     </div>
 
                     <div className="column" id="right-container">

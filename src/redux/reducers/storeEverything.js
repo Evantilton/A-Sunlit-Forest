@@ -8,7 +8,9 @@ const storeEverything = (state = {}, action) => {
     case 'GATHER_SUNLIGHT':
       return {...state,resource_sunlight: state.resource_sunlight+action.payload};
     case 'GATHER_SUNLIGHT_MAX':
-      return{...state, resource_sunlight: action.payload}
+      return{...state, resource_sunlight: state.resource_sunlight_max}
+    case 'BUY_SAP':
+      return {...state,resource_sap: state.resource_sap+1, resource_sunlight: state.resource_sunlight - state.resource_sap_price};
     default:
       return state;
   }
