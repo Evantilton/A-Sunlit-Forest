@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './Gameplay.css'
-
+import './Gameplay.css';
+import Resource from './Resource/Resource';
+import Tabs from './Tabs/Tabs';
+import Textbox from './Textbox/Textbox';
 
 import { connect } from 'react-redux';
 
@@ -78,14 +80,7 @@ class Gameplay extends Component {
 
                 <div id="gameplay-container">
                     <div className="column" id="left-container">
-                        <h1>Resources </h1>
-                        <span> 
-                            <p>Current Sunlight: {this.props.storeEverything.resource_sunlight}/{this.props.storeEverything.resource_sunlight_max}</p>
-                            <p>Current Sap: {this.props.storeEverything.resource_sap}/{this.props.storeEverything.resource_sap_max} </p>
-                            <button onClick={this.buySap}> Convert Sunlight into Sap </button>
-                            <p>Current Science: {this.props.storeEverything.resource_science}/{this.props.storeEverything.resource_science_max} </p>
-                            <p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
-                        </span>
+                        <Resource/>
                     </div>
 
                     <div className="column" id="middle-container">

@@ -9,7 +9,6 @@ CREATE TABLE "user" (
     "password" VARCHAR (100),
     "isAdmin" BOOLEAN DEFAULT false,
 	"click_gather_sunlight" INTEGER DEFAULT 1,
-  "resource_sunlight" INTEGER DEFAULT 0,
   "resource_sap" INTEGER DEFAULT 0,
   "resource_treefolk" INTEGER DEFAULT 0,
   "resource_science" INTEGER DEFAULT 0,
@@ -44,5 +43,6 @@ CREATE TABLE "user" (
   "upgrade_roots_reveal" BOOLEAN DEFAULT false,
   "upgrade_chlorophyll_reveal" BOOLEAN DEFAULT false,
   "upgrade_bark_reveal" BOOLEAN DEFAULT false,
+   "resource_sunlight" INTEGER DEFAULT 0,
   "resource_sap_price" INTEGER DEFAULT 100
 );
