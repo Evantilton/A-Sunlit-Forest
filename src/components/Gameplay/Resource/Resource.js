@@ -42,6 +42,12 @@ class Resource extends Component {
         };
     }
 
+    displayPopulation = () => {
+        if (this.props.storeEverything.resource_population_reveal) {
+            return <p>Current Population: {this.props.storeEverything.resource_population}</p>
+        };
+    }
+
     render() {
 
         return (
@@ -59,6 +65,7 @@ class Resource extends Component {
                         {this.displaySapButton()}
                         {this.displayScience()}
                         {this.displayTreefolk()}
+                        {this.displayPopulation()}
                     </span>
                 </div>
             </>
