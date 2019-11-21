@@ -17,7 +17,6 @@ class Textbox extends Component {
 
                         </div>
                         <h1>Text</h1>
-
                         <ul>
                                 {this.props.textTest.map((text) =>
                                 <li>{text}</li> )}

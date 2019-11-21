@@ -55,7 +55,7 @@ header {
         font-family: Helvetica;
         font-size: 14px;
         border-radius: 3px;
-        border: 1px solid #888;
+        border: 1px solid black;
         padding: 0;
         width: 264px;
         position: relative;
@@ -65,18 +65,26 @@ header {
         opacity: 1;
         padding: 10px 0 10px 10px;
 }
+.span:active {
+    color:black;
+    background-color: green;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+}
 .floatSpan {
-    position: absolute;
+    
     font-family: Helvetica;
     font-size: 14px;
     border-radius: 3px;
     border: 1px solid #888;
     padding: 0;
     width: 264px;
-    position: relative;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    opacity: 1;
+    opacity: 100;
     padding: 10px 0 10px 10px;
+    position: absolute;
+  right: 350px;
+  top: 180px;
+  z-index: -1;
 }

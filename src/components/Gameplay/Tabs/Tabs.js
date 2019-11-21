@@ -21,7 +21,7 @@ class Tabs extends Component {
         if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
             this.props.dispatch({ type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max })
 
-        } else if ((this.props.storeEverything.upgrade_chlorophyll_reveal === false) && (this.props.storeEverything.resource_sunlight > 100)) {
+        } else if ((this.props.storeEverything.upgrade_chlorophyll_reveal === false) && (this.props.storeEverything.resource_sunlight > 99)) {
             this.props.dispatch({ type: 'REVEAL_CHLOROPHYLL' })
         } else
             this.props.dispatch({ type: 'GATHER_SUNLIGHT', payload: this.props.storeEverything.click_gather_sunlight })
@@ -53,8 +53,8 @@ class Tabs extends Component {
     //conditional displays MAIN COMPONENTS//
     displayChlorophyll = () => {
         if (this.props.storeEverything.upgrade_chlorophyll_reveal) {
-            return <span class="span" onClick={this.upgradeChlorophyll} 
-            onMouseOver={this.chlorophyllMouseOver} onMouseOut={this.chlorophyllMouseOver}> Chlorophyll Infusion</span>
+            return <span class="span" onClick={this.upgradeChlorophyll}
+                onMouseOver={this.chlorophyllMouseOver} onMouseOut={this.chlorophyllMouseOver}> Chlorophyll Infusion</span>
         };
     }
     //MOUSEOVERS
@@ -82,25 +82,29 @@ class Tabs extends Component {
     //DISPLAY TEXT ON MOUSEOVERS
     displaySunlightText = () => {
         if (this.state.displaySunlight) {
-            return <span class="floatSpan"> Sunlight Text </span>
+            return <span class="floatSpan"> 
+            Resource Sunlight Text Filler
+            <p> {this.props.storeEverything.resource_sunlight_text}</p>
+
+            </span>
         }
     }
     displayRootsText = () => {
         if (this.state.displayRoots) {
-            return <span class="floatSpan"> 
-            <p> {this.props.storeEverything.upgrade_roots_text}</p>
-              <p>Level: {this.props.storeEverything.upgrade_roots}</p>         
-              <p>Sap Cost: {this.props.storeEverything.upgrade_roots_cost}</p> 
+            return <span class="floatSpan">
+                <p> {this.props.storeEverything.upgrade_roots_text}</p>
+                <p>Level: {this.props.storeEverything.upgrade_roots}</p>
+                <p>Sap Cost: {this.props.storeEverything.upgrade_roots_cost}</p>
             </span>
         }
     }
     displayChlorophyllText = () => {
         if (this.state.displayChlorophyll) {
-            return <span class="floatSpan">  
+            return <span class="floatSpan">
                 <p> {this.props.storeEverything.upgrade_chlorophyll_text}</p>
-              <p>Level: {this.props.storeEverything.upgrade_chlorophyll}</p>         
-              <p>Sap Cost: {this.props.storeEverything.upgrade_chlorophyll_cost}</p> 
-              </span>
+                <p>Level: {this.props.storeEverything.upgrade_chlorophyll}</p>
+                <p>Sap Cost: {this.props.storeEverything.upgrade_chlorophyll_cost}</p>
+            </span>
         }
     }
 
@@ -112,17 +116,14 @@ class Tabs extends Component {
                     <h1>Tabs</h1>
                     <table>
                         <tr>
-                            <td>
-                                <span class="span" onClick={this.gatherSunlight} onMouseOver={this.sunlightMouseOver} onMouseOut={this.sunlightMouseOver}> Gather Sunlight </span>
-                            </td>
-                            {/* <td>
-                                {this.displaySunlightText()}
-                                {this.displayRootsText()}
-                                {this.displayChlorophyllText()}
-                            </td> */}
+                                <span class="span" onClick={this.gatherSunlight} 
+                                onMouseOver={this.sunlightMouseOver} onMouseOut={this.sunlightMouseOver}> 
+                                Gather Sunlight </span>
                         </tr>
                         <tr>
-                            <span class="span" onClick={this.upgradeRoots} onMouseOver={this.rootsMouseOver} onMouseOut={this.rootsMouseOver}> Expand Roots  Current Level: {this.props.storeEverything.upgrade_roots} Cost in Sap: {this.props.storeEverything.upgrade_roots_cost}</span>
+                            <span class="span" onClick={this.upgradeRoots} 
+                            onMouseOver={this.rootsMouseOver} onMouseOut={this.rootsMouseOver}> 
+                            Expand Roots</span>
                         </tr>
                         <tr>
                             {this.displayChlorophyll()}

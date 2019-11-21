@@ -81,7 +81,11 @@ router.put('/', (req, res) => {
   "resource_farmer" =$56,
   "resource_farmer_reveal" =$57,
   "resource_farmer_max" =$58,
-  "resource_farmer_modifier" =$59
+  "resource_farmer_modifier" =$59,
+  "resource_sunstone" =$60,
+  "resource_sunstone_max" =$61,
+  "resource_sunstone_text" =$62,
+  "resource_sunstone_modifier" =$63
   
     WHERE "id"=$1`;
   const values = [
@@ -143,7 +147,11 @@ router.put('/', (req, res) => {
     req.body.resource_farmer,
     req.body.resource_farmer_reveal,
     req.body.resource_farmer_max,
-    req.body.resource_farmer_modifier
+    req.body.resource_farmer_modifier,
+    req.body.resource_sunstone,
+    req.body.resource_sunstone_max,
+    req.body.resource_sunstone_text,
+    req.body.resource_sunstone_modifier
   ];
 
   pool.query(queryText, values)
