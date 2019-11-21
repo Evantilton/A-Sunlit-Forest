@@ -12,8 +12,12 @@ class Textbox extends Component {
         return (
             <>
             <div className="column" id="right-container">
-                        <div id="time"></div>
+                        <div id="time">
+
+
+                        </div>
                         <h1>Text</h1>
+
                         <ul>
                                 {this.props.textTest.map((text) =>
                                 <li>{text}</li> )}

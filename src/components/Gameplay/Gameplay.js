@@ -12,7 +12,7 @@ class Gameplay extends Component {
         this.getEverything();
         setInterval(() => {
             this.saveFunction();
-        }, 1000);
+        }, 100000);
     }
 
     getEverything() {

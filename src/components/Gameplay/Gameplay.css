@@ -50,3 +50,33 @@ header {
     /* top: 20px; */
     position: relative;
 }
+
+.span {
+        font-family: Helvetica;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1px solid #888;
+        padding: 0;
+        width: 264px;
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 1;
+        padding: 10px 0 10px 10px;
+}
+.floatSpan {
+    position: absolute;
+    font-family: Helvetica;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #888;
+    padding: 0;
+    width: 264px;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 1;
+    padding: 10px 0 10px 10px;
+}
