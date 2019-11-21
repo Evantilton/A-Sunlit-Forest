@@ -69,5 +69,10 @@ CREATE TABLE "user" (
   "resource_sunstone" INTEGER DEFAULT 0,
   "resource_sunstone_max" INTEGER DEFAULT 100,
   "resource_sunstone_text" VARCHAR DEFAULT 'a little piece of the sun',
-  "resource_sunstone_modifier" INTEGER DEFAULT 1
+  "resource_sunstone_modifier" INTEGER DEFAULT 1,
+  "upgrade_roots_flavor_text_one" VARCHAR DEFAULT 'Your roots expand and entwine with the trees around you.',
+  "upgrade_roots_flavor_text_two" VARCHAR DEFAULT 'As your roots expand, you can feel something bright below.',
+  "upgrade_roots_flavor_text_three" VARCHAR DEFAULT 'As above, so below.  The warmth increases.  You are getting close.',
+  "upgrade_roots_flavor_text_four" VARCHAR DEFAULT 'Your roots entwine around an object as bright as the sun in you mind.',
+  "resource_sunstone_flavor_text_one" VARCHAR DEFAULT 'You have aquired a sunstone!'
 );

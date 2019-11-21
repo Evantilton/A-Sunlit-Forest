@@ -7,13 +7,16 @@ class Tabs extends Component {
     componentDidMount() {
         setInterval(() => {
             this.treeFarm();
-        }, 1000);
+            this.gatherSunlight();
+        }, 10000);
+
     }
     //local state for conditional renders of mouseovers
     state = {
         displaySunlight: false,
         displayRoots: false,
         displayChlorophyll: false,
+        displayProduction: true,
     }
     //Logic for button presses
     gatherSunlight = () => {
@@ -40,9 +43,42 @@ class Tabs extends Component {
 
     upgradeRoots = () => {
         console.log("upgrading Roots")
+
         // if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_roots_cost) {
+
         this.props.dispatch({ type: 'UPGRADE_ROOTS', payload: (Math.floor(Math.random() * (7 - 1)) + 1) })
         // } 
+        if (this.props.storeEverything.upgrade_roots === 0) {
+            this.props.dispatch({
+                type: 'TEXT',
+                payload: this.props.storeEverything.upgrade_roots_flavor_text_one
+            })
+        } else if (this.props.storeEverything.upgrade_roots === 1) {
+            this.props.dispatch({
+                type: 'TEXT',
+                payload: this.props.storeEverything.upgrade_roots_flavor_text_two
+            })
+        } else if (this.props.storeEverything.upgrade_roots === 2) {
+            this.props.dispatch({
+                type: 'TEXT',
+                payload: this.props.storeEverything.upgrade_roots_flavor_text_three
+            })
+        } else if (this.props.storeEverything.upgrade_roots === 3) {
+            this.props.dispatch({
+                type: 'TEXT',
+                payload: this.props.storeEverything.upgrade_roots_flavor_text_four
+            });
+            this.props.dispatch({ type: 'RESOURCE_SUNSTONE' });
+            this.props.dispatch({
+                type: 'TEXT',
+                payload: this.props.storeEverything.resource_sunstone_flavor_text_one
+            });
+        } else {
+            this.props.dispatch({
+                type: 'TEXT',
+                payload: this.props.storeEverything.upgrade_roots_flavor_text_one
+            })
+        }
     }
 
     upgradeChlorophyll = () => {
@@ -55,6 +91,14 @@ class Tabs extends Component {
         if (this.props.storeEverything.upgrade_chlorophyll_reveal) {
             return <span class="span" onClick={this.upgradeChlorophyll}
                 onMouseOver={this.chlorophyllMouseOver} onMouseOut={this.chlorophyllMouseOver}> Chlorophyll Infusion</span>
+        };
+    }
+
+    displayRoots = () => {
+        if (this.props.storeEverything.upgrade_roots_reveal) {
+            return <span class="span" onClick={this.upgradeRoots}
+                onMouseOver={this.rootsMouseOver} onMouseOut={this.rootsMouseOver}>
+                Expand Roots</span>
         };
     }
     //MOUSEOVERS
@@ -82,8 +126,8 @@ class Tabs extends Component {
     //DISPLAY TEXT ON MOUSEOVERS
     displaySunlightText = () => {
         if (this.state.displaySunlight) {
-            return <span class="floatSpan"> 
-            Resource Sunlight Text Filler
+            return <span class="floatSpan">
+                Resource Sunlight Text Filler
             <p> {this.props.storeEverything.resource_sunlight_text}</p>
 
             </span>
@@ -108,31 +152,39 @@ class Tabs extends Component {
         }
     }
 
+    displayProduction = () => {
+        if (this.state.displayProduction) {
+            return <div className="column" id="middle-container">
+                <div className="bigTab">
+                    <span class="tabSpan">A Sunlit Forest </span>
+                </div>
+                <div className="smallTab">
+                    <span class="tabSpan">Production - </span></div>
+                <table>
+                    <tr>
+                        <span class="span" onClick={this.gatherSunlight}
+                            onMouseOver={this.sunlightMouseOver} onMouseOut={this.sunlightMouseOver}>
+                            Gather Sunlight </span>
+                    </tr>
+                    <tr>
+                        {this.displayRoots()}
+                    </tr>
+                    <tr>
+                        {this.displayChlorophyll()}
+                    </tr>
+                </table>
+                {this.displaySunlightText()}
+                {this.displayRootsText()}
+                {this.displayChlorophyllText()}
+            </div>
+        }
+    }
+
     render() {
 
         return (
             <>
-                <div className="column" id="middle-container">
-                    <h1>Tabs</h1>
-                    <table>
-                        <tr>
-                                <span class="span" onClick={this.gatherSunlight} 
-                                onMouseOver={this.sunlightMouseOver} onMouseOut={this.sunlightMouseOver}> 
-                                Gather Sunlight </span>
-                        </tr>
-                        <tr>
-                            <span class="span" onClick={this.upgradeRoots} 
-                            onMouseOver={this.rootsMouseOver} onMouseOut={this.rootsMouseOver}> 
-                            Expand Roots</span>
-                        </tr>
-                        <tr>
-                            {this.displayChlorophyll()}
-                        </tr>
-                    </table>
-                    {this.displaySunlightText()}
-                    {this.displayRootsText()}
-                    {this.displayChlorophyllText()}
-                </div>
+                {this.displayProduction()}
             </>
         );
     };

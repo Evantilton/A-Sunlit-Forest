@@ -19,6 +19,8 @@ const storeEverything = (state = {}, action) => {
       return {...state, resource_population_reveal: true, resource_population: state.resource_population + action.payload, upgrade_roots: state.upgrade_roots+1, upgrade_roots_cost: state.upgrade_roots_cost * 2};
     case 'TREE_FARM':
       return {...state, resource_sunlight: state.resource_sunlight + (state.resource_population * 1)};
+    case 'RESOURCE_SUNSTONE':
+        return {...state, resource_sunlight_reveal: true, resource_sunstone: state.resource_sunstone + 1};
       default:
       return state;
   }
