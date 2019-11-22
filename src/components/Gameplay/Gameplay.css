@@ -81,12 +81,14 @@ header {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    opacity: 100;
+    
     padding: 10px 0 10px 10px;
     position: absolute;
   right: 350px;
   top: 180px;
-  z-index: -1;
+  z-index: 1;
+  opacity: 1;
+  background-color: solid white;
 }
 
 .tabSpan {

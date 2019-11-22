@@ -15,6 +15,13 @@ class Resource extends Component {
         }
     }
 
+    useSunstone = () => {
+        console.log("using Sunstone")
+        if (this.props.storeEverything.resource_sunstone > 0) {
+            this.props.dispatch({ type: 'BUY_TREEFOLK'});
+            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text});
+        }
+    }
     //Conditional Displays//
     displaySunlight = () => {
         if (this.props.storeEverything.resource_sunlight_reveal) {
@@ -51,7 +58,7 @@ class Resource extends Component {
     displaySunstone = () => {
         if (this.props.storeEverything.resource_population_reveal) {
             return <div><p>Sunstones: {this.props.storeEverything.resource_sunstone}</p>
-                <button > Use Sunstone</button>
+                <button onClick={this.useSunstone()}> Use Sunstone</button>
             </div>
         };
     }

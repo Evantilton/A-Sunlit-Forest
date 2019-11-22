@@ -90,7 +90,9 @@ router.put('/', (req, res) => {
   "upgrade_roots_flavor_text_two" =$65,
   "upgrade_roots_flavor_text_three" =$66,
   "upgrade_roots_flavor_text_four" =$67,
-  "resource_sunstone_flavor_text_one"=$68
+  "resource_sunstone_flavor_text_one"=$68,
+  "resource_treefolk_unassigned"=$69,
+  "resource_treefolk_assigned"=$70
   
     WHERE "id"=$1`;
   const values = [
@@ -161,7 +163,9 @@ router.put('/', (req, res) => {
     req.body.upgrade_roots_flavor_text_two,
     req.body.upgrade_roots_flavor_text_three,
     req.body.upgrade_roots_flavor_text_four,
-    req.body.resource_sunstone_flavor_text_one
+    req.body.resource_sunstone_flavor_text_one,
+    req.body.resource_treefolk_unassigned,
+    req.body.resource_treefolk_assigned
   ];
 
   pool.query(queryText, values)

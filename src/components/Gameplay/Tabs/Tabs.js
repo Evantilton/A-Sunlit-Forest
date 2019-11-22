@@ -8,7 +8,7 @@ class Tabs extends Component {
         setInterval(() => {
             this.treeFarm();
             this.gatherSunlight();
-        }, 10000);
+        }, 1000);
 
     }
     //local state for conditional renders of mouseovers
