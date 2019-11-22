@@ -94,8 +94,8 @@ header {
 .tabSpan {
     font-family: Helvetica;
     font-size: 14px;
-    /* border-radius: 3px; */
-    /* border: 1px solid black; */
+    border-radius: 3px;
+    border: 1px solid black;
     padding: 0px;
     width: 100px;
     position: relative;
@@ -104,6 +104,7 @@ header {
     margin-right: auto; */
     opacity: 1;
     padding: 10px 0 10px 10px;
+    background-color: lightblue;
 }
 .tabSpan:active {
     color:black;

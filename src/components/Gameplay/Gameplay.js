@@ -12,7 +12,7 @@ class Gameplay extends Component {
         this.getEverything();
         setInterval(() => {
             this.saveFunction();
-        }, 1000);
+        }, 100000);
     }
 
     getEverything() {
@@ -23,6 +23,7 @@ class Gameplay extends Component {
     saveFunction = () => {
         console.log("savefunction hit: saving the current gamestate");
         this.props.dispatch({ type: 'SAVE_EVERYTHING', payload: this.props.storeEverything});
+        
     }
     render() {
 

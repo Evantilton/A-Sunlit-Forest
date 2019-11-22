@@ -8,7 +8,9 @@ class Tabs extends Component {
         setInterval(() => {
             this.treeFarm();
             this.gatherSunlight();
-        }, 1000);
+            this.treeFarm();
+            this.research();
+        }, 10000);
 
     }
     //local state for conditional renders of mouseovers
@@ -17,6 +19,29 @@ class Tabs extends Component {
         displayRoots: false,
         displayChlorophyll: false,
         displayProduction: true,
+        displayResearch: false,
+        displayCrafting: false,
+        displayIrrigation: false,
+        displayHorticulture: false,
+        displayMobility: false,
+        displayMathematics: false,
+    }
+    //auto functions//
+    treeFarm = () => {
+        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
+            this.props.dispatch({ type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max })
+        } else if ((this.props.storeEverything.resource_sunlight + (this.props.storeEverything.resource_population * .5) > this.props.storeEverything.resource_sunlight_max)) {
+            this.props.dispatch({ type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max })
+        }
+        else if (this.props.storeEverything.resource_population > 0) {
+            console.log("IN TREEFARM")
+            this.props.dispatch({ type: 'TREE_FARM' })
+        }
+    }
+    research = () => {
+        if ((this.props.storeEverything.resource_scientist > 0) && (this.props.storeEverything.resource_science < this.props.storeEverything.resource_science_max)) {
+            this.props.dispatch({ type: 'RESEARCH' })
+        }
     }
     //Logic for button presses
     gatherSunlight = () => {
@@ -28,17 +53,6 @@ class Tabs extends Component {
             this.props.dispatch({ type: 'REVEAL_CHLOROPHYLL' })
         } else
             this.props.dispatch({ type: 'GATHER_SUNLIGHT', payload: this.props.storeEverything.click_gather_sunlight })
-    }
-    treeFarm = () => {
-        if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
-            this.props.dispatch({ type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max })
-        } else if ((this.props.storeEverything.resource_sunlight + (this.props.storeEverything.resource_population * .5) > this.props.storeEverything.resource_sunlight_max)) {
-            this.props.dispatch({ type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max })
-        }
-        else if (this.props.storeEverything.resource_population > 0) {
-            console.log("IN TREEFARM")
-            this.props.dispatch({ type: 'TREE_FARM' })
-        }
     }
 
     upgradeRoots = () => {
@@ -63,7 +77,7 @@ class Tabs extends Component {
                 type: 'TEXT',
                 payload: this.props.storeEverything.upgrade_roots_flavor_text_three
             })
-        } else if (this.props.storeEverything.upgrade_roots === 3) {
+        } else if (this.props.storeEverything.upgrade_roots >= 3 && this.props.storeEverything.resource_sunstone_reveal === false) {
             this.props.dispatch({
                 type: 'TEXT',
                 payload: this.props.storeEverything.upgrade_roots_flavor_text_four
@@ -85,6 +99,20 @@ class Tabs extends Component {
         if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_chlorophyll_cost) {
             this.props.dispatch({ type: 'UPGRADE_CHLOROPHYLL' })
         }
+    }
+
+    buyIrrigation = () => {
+        console.log("buying irrigation")
+    }
+
+    buyHorticulture = () => {
+        console.log("buying horticulture")
+    }
+    buyMathematics = () => {
+        console.log("buying Mathematics")
+    }
+    buyMobility = () => {
+        console.log("buying Mathematics")
     }
     //conditional displays MAIN COMPONENTS//
     displayChlorophyll = () => {
@@ -123,6 +151,39 @@ class Tabs extends Component {
             displayChlorophyll: !this.state.displayChlorophyll,
         })
     }
+    //research mouseover
+    irrigationMouseOver = () => {
+        this.setState({
+            displayIrrigation: !this.state.displayIrrigation,
+            displayHorticulture: false,
+            displayMobility: false,
+            displayMathematics: false,
+        })
+    }
+    horticultureMouseOver = () => {
+        this.setState({
+            displayIrrigation: false,
+            displayHorticulture: !this.state.displayHorticulture,
+            displayMobility: false,
+            displayMathematics: false,
+        })
+    }
+    mobilityMouseOver = () => {
+        this.setState({
+            displayIrrigation: false,
+            displayHorticulture: false,
+            displayMobility: !this.state.displayMobility,
+            displayMathematics: false,
+        })
+    }
+    mathematicsMouseOver = () => {
+        this.setState({
+            displayIrrigation: false,
+            displayHorticulture: false,
+            displayMobility: false,
+            displayMathematics: !this.state.displayMathematics,
+        })
+    }
     //DISPLAY TEXT ON MOUSEOVERS
     displaySunlightText = () => {
         if (this.state.displaySunlight) {
@@ -151,15 +212,71 @@ class Tabs extends Component {
             </span>
         }
     }
+    //Research Display Text on mouseover
+    displayIrrigationText = () => {
+        if (this.state.displayIrrigation) {
+            return <span class="floatSpan">
+                RESEARCH IRRGATION TEXT FILLER
+            <p> {this.props.storeEverything.resource_sunlight_text}</p>
 
+            </span>
+        }
+    }
+    displayHornicultureText = () => {
+        if (this.state.displayHorniculture) {
+            return <span class="floatSpan">
+                RESEARCH Horniculture TEXT FILLER
+            <p> {this.props.storeEverything.resource_sunlight_text}</p>
+
+            </span>
+        }
+    }
+    displayMathematicsText = () => {
+        if (this.state.displayMathematics) {
+            return <span class="floatSpan">
+                RESEARCH Mathematics TEXT FILLER
+            <p> {this.props.storeEverything.resource_sunlight_text}</p>
+
+            </span>
+        }
+    }
+    displayMobilityText = () => {
+        if (this.state.displayMobility) {
+            return <span class="floatSpan">
+                RESEARCH Mobility TEXT FILLER
+            <p> {this.props.storeEverything.resource_sunlight_text}</p>
+
+            </span>
+        }
+    }
+    //Click on tabs to show information
+    productionShow = () => {
+        this.setState({
+            displayProduction: true,
+            displayResearch: false,
+
+        })
+    }
+    researchShow = () => {
+        console.log(this.state)
+        this.setState({
+            displayProduction: false,
+            displayResearch: true,
+
+        })
+    }
+    //conditional render tabs
+    displayResearchTab = () => {
+        if (this.props.storeEverything.resource_science_reveal) {
+            console.log(this.state)
+            return <td><span class="tabSpan" onClick={() => this.researchShow()}>Research - </span></td>
+        }
+    }
+
+    //main tabs information//
     displayProduction = () => {
         if (this.state.displayProduction) {
-            return <div className="column" id="middle-container">
-                <div className="bigTab">
-                    <span class="tabSpan">A Sunlit Forest </span>
-                </div>
-                <div className="smallTab">
-                    <span class="tabSpan">Production - </span></div>
+            return <div>
                 <table>
                     <tr>
                         <span class="span" onClick={this.gatherSunlight}
@@ -179,12 +296,39 @@ class Tabs extends Component {
             </div>
         }
     }
+    displayResearch = () => {
+        if (this.state.displayResearch) {
+            return <div>
+                <span class="span" onClick={this.buyIrrigation}
+                    onMouseOver={this.irrigationMouseOver} onMouseOut={this.irrigationMouseOver}>
+                    Irrigation </span>
+                <span class="span" onClick={this.buyMathematics}
+                    onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
+                    Mathematics </span>
+                <span class="span" onClick={this.buyHorticulture}
+                    onMouseOver={this.horticultureMouseOver} onMouseOut={this.horticultureMouseOver}>
+                    Horticulture </span>
+                <span class="span" onClick={this.buyMobility}
+                    onMouseOver={this.mobilityMouseOver} onMouseOut={this.mobilityMouseOver}>
+                    Mobility </span>
+            </div>
+        }
+    }
 
     render() {
 
         return (
             <>
-                {this.displayProduction()}
+                <div className="column" id="middle-container">
+                    <div className="bigTab">
+                        <span class="tabSpan">A Sunlit Forest </span>
+                    </div>
+                    <div className="smallTab">
+                        <table> <td><span class="tabSpan" onClick={() => this.productionShow()} >Production - </span></td> {this.displayResearchTab()} </table> </div>
+                    {this.displayProduction()}
+                    {this.displayResearch()}
+
+                </div>
             </>
         );
     };

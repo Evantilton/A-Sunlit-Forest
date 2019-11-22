@@ -22,6 +22,22 @@ class Resource extends Component {
             this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text});
         }
     }
+
+    subtractThinker = () => {
+        console.log("subtracting Thinker")
+        if (this.props.storeEverything.resource_scientist > 0) {
+            this.props.dispatch({ type: 'SUBTRACT_THINKER'});
+            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text});
+        }
+    }
+
+     addThinker = () => {
+        console.log("Adding Thinker")
+        if (this.props.storeEverything.resource_treefolk_unassigned > 0) {
+            this.props.dispatch({ type: 'ADD_THINKER'});
+            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text});
+        }
+    }
     //Conditional Displays//
     displaySunlight = () => {
         if (this.props.storeEverything.resource_sunlight_reveal) {
@@ -45,21 +61,35 @@ class Resource extends Component {
     }
     displayTreefolk = () => {
         if (this.props.storeEverything.resource_treefolk_reveal) {
-            return <p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
+            return <div><p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
+            <p>Unassigned Treefolk: {this.props.storeEverything.resource_treefolk_unassigned} </p>
+            <p> </p>
+            <p>Occupations:</p>
+            <p>Thinker: {this.props.storeEverything.resource_scientist}/{this.props.storeEverything.resource_treefolk} 
+                
+            </p>
+            </div>
         };
     }
+
+    displayTreefolkButton = () => {
+        if (this.props.storeEverything.resource_treefolk_reveal) {
+       return  <> <div><button onClick={() => this.subtractThinker()}> - </button><button onClick={() => this.addThinker()}> + </button> </div></>
+    }
+}
     displayPopulation = () => {
         if (this.props.storeEverything.resource_population_reveal) {
-            return <div>
-                <p>Forest Colony: population {this.props.storeEverything.resource_population}</p>
-                </div>
+            return <div><p>Forest Colony: population {this.props.storeEverything.resource_population}</p></div>
         };
     }
     displaySunstone = () => {
-        if (this.props.storeEverything.resource_population_reveal) {
-            return <div><p>Sunstones: {this.props.storeEverything.resource_sunstone}</p>
-                <button onClick={this.useSunstone()}> Use Sunstone</button>
-            </div>
+        if (this.props.storeEverything.resource_sunstone_reveal) {
+            return <p>Sunstones: {this.props.storeEverything.resource_sunstone}</p>
+        };
+    }
+    displaySunstoneButton = () => {
+        if (this.props.storeEverything.resource_sunstone_reveal) {
+            return  <button onClick={()=> this.useSunstone()}> Use Sunstone</button>
         };
     }
 
@@ -75,8 +105,10 @@ class Resource extends Component {
                         {this.displaySapButton()}
                         {this.displayScience()}
                         {this.displayTreefolk()}
+                        {this.displayTreefolkButton()}
                         {this.displayPopulation()}
                         {this.displaySunstone()}
+                        {this.displaySunstoneButton()}
                     </span>
                 </div>
             </>

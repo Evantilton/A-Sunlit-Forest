@@ -76,5 +76,6 @@ CREATE TABLE "user" (
   "upgrade_roots_flavor_text_four" VARCHAR DEFAULT 'Your roots entwine around an object as bright as the sun in you mind.',
   "resource_sunstone_flavor_text_one" VARCHAR DEFAULT 'You have aquired a sunstone!',
   "resource_treefolk_unassigned" FLOAT DEFAULT 0,
-  "resource_treefolk_assigned" FLOAT DEFAULT 0
+  "resource_treefolk_assigned" FLOAT DEFAULT 0,
+  "resource_sunstone_reveal" BOOLEAN DEFAULT false
 );
