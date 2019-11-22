@@ -188,8 +188,10 @@ class Tabs extends Component {
     displaySunlightText = () => {
         if (this.state.displaySunlight) {
             return <span class="floatSpan">
-                Resource Sunlight Text Filler
-            <p> {this.props.storeEverything.resource_sunlight_text}</p>
+               
+                <p>Spread your leaves and gather sunlight.</p>
+                
+                <p class="flavor">tasty!</p>
 
             </span>
         }
@@ -197,18 +199,26 @@ class Tabs extends Component {
     displayRootsText = () => {
         if (this.state.displayRoots) {
             return <span class="floatSpan">
-                <p> {this.props.storeEverything.upgrade_roots_text}</p>
+                <h1> Root Expansion</h1>
+                <p>Connects you to the trees around you.</p>
+                
                 <p>Level: {this.props.storeEverything.upgrade_roots}</p>
                 <p>Sap Cost: {this.props.storeEverything.upgrade_roots_cost}</p>
+                <p>Effect: The trees in your colony provide passive sunlight generation.</p>
+                <p class="flavor">Deep roots are not reached by the frost.</p>
             </span>
         }
     }
     displayChlorophyllText = () => {
         if (this.state.displayChlorophyll) {
             return <span class="floatSpan">
-                <p> {this.props.storeEverything.upgrade_chlorophyll_text}</p>
+                <h1> Chlorophyll Infusion</h1>
+                <p>Greener is better.</p>
+                
                 <p>Level: {this.props.storeEverything.upgrade_chlorophyll}</p>
                 <p>Sap Cost: {this.props.storeEverything.upgrade_chlorophyll_cost}</p>
+                <p>Effect: increase your per click sunlight generation.</p>
+                <p class="flavor">What is a trees favorite color? green.</p>
             </span>
         }
     }
@@ -216,26 +226,33 @@ class Tabs extends Component {
     displayIrrigationText = () => {
         if (this.state.displayIrrigation) {
             return <span class="floatSpan">
-                RESEARCH IRRGATION TEXT FILLER
-            <p> {this.props.storeEverything.resource_sunlight_text}</p>
-
+                <h1>Research: Irrigation</h1>
+                <p>The study of efficient watering methods</p>
+                <p>cost: 100 research</p>
+                <p>Effects: +.5% population growth</p>
+                <p class="flavor">*gulp *gulp</p>
             </span>
         }
     }
     displayHornicultureText = () => {
-        if (this.state.displayHorniculture) {
+        if (this.state.displayHorticulture) {
             return <span class="floatSpan">
-                RESEARCH Horniculture TEXT FILLER
-            <p> {this.props.storeEverything.resource_sunlight_text}</p>
-
+                <h1>Research: Horniculture</h1>
+                <p>Lets grow a garden!</p>
+                <p>cost: 100 research</p>
+                <p>Effects: unlocks Garden</p>
+                <p class="flavor">Happy little trees</p>
             </span>
         }
     }
     displayMathematicsText = () => {
         if (this.state.displayMathematics) {
             return <span class="floatSpan">
-                RESEARCH Mathematics TEXT FILLER
-            <p> {this.props.storeEverything.resource_sunlight_text}</p>
+               <h1>Research: Mathematics</h1>
+                <p>One Tree, Two Tree, Three Tree, Four</p>
+                <p>cost: 100 research</p>
+                <p>Effects: displays per second resource generation</p>
+                <p class="flavor">At what number do trees become a forest?</p>
 
             </span>
         }
@@ -243,9 +260,11 @@ class Tabs extends Component {
     displayMobilityText = () => {
         if (this.state.displayMobility) {
             return <span class="floatSpan">
-                RESEARCH Mobility TEXT FILLER
-            <p> {this.props.storeEverything.resource_sunlight_text}</p>
-
+                <h1>Research: Mobility</h1>
+                <p>Learn how to uproot yourself.</p>
+                <p>cost: 100 Research </p>
+                <p> Effects: Unlocks Explorer</p>
+                <p class="flavor">Freeeeeeeeeddddooomm</p>
             </span>
         }
     }
@@ -299,18 +318,24 @@ class Tabs extends Component {
     displayResearch = () => {
         if (this.state.displayResearch) {
             return <div>
-                <span class="span" onClick={this.buyIrrigation}
+                <table>
+                <tr><span class="span" onClick={this.buyIrrigation}
                     onMouseOver={this.irrigationMouseOver} onMouseOut={this.irrigationMouseOver}>
-                    Irrigation </span>
-                <span class="span" onClick={this.buyMathematics}
+                    Irrigation </span></tr>
+                <tr><span class="span" onClick={this.buyMathematics}
                     onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
-                    Mathematics </span>
-                <span class="span" onClick={this.buyHorticulture}
+                    Mathematics </span> </tr>
+                <tr><span class="span" onClick={this.buyHorticulture}
                     onMouseOver={this.horticultureMouseOver} onMouseOut={this.horticultureMouseOver}>
-                    Horticulture </span>
-                <span class="span" onClick={this.buyMobility}
+                    Horticulture </span> </tr>
+                <tr><span class="span" onClick={this.buyMobility}
                     onMouseOver={this.mobilityMouseOver} onMouseOut={this.mobilityMouseOver}>
-                    Mobility </span>
+                    Mobility </span></tr>
+                    </table>
+                {this.displayIrrigationText()}
+                {this.displayMathematicsText()}
+                {this.displayMobilityText()}
+                {this.displayHornicultureText()}
             </div>
         }
     }
