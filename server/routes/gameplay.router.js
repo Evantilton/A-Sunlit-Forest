@@ -20,6 +20,17 @@ router.get('/',  (req, res) => {
       });
   });
 
+  router.delete('/',  (req, res) => {
+    const queryText = 'DELETE FROM "user" WHERE "id" = $1';
+    pool.query(queryText, [req.user.id])
+      .then((result) => 
+      { res.send(result.rows); })
+      .catch((err) => {
+        console.log('Error completing DELETE everything query', err);
+        res.sendStatus(500);
+      });
+  });
+
 router.put('/', (req, res) => {
   const queryText =
     `UPDATE "user" 

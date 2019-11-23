@@ -3,17 +3,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Tabs extends Component {
-
+//this component did mount will run a number of functions, 
+//many are needed for when they are unlocked, they run once per second
     componentDidMount() {
         setInterval(() => {
             this.treeFarm();
             this.gatherSunlight();
             this.treeFarm();
             this.research();
-        }, 10000);
+        }, 1000);
 
     }
     //local state for conditional renders of mouseovers
+    //yes, this is ugly incredibly ineligant coding, 
+    //this will need to be refactored eventually
     state = {
         displaySunlight: false,
         displayRoots: false,
@@ -26,7 +29,7 @@ class Tabs extends Component {
         displayMobility: false,
         displayMathematics: false,
     }
-    //auto functions//
+    //auto functions that run onmount//
     treeFarm = () => {
         if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
             this.props.dispatch({ type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max })
@@ -43,7 +46,7 @@ class Tabs extends Component {
             this.props.dispatch({ type: 'RESEARCH' })
         }
     }
-    //Logic for button presses
+    //Logic for buttons in Production Subtab
     gatherSunlight = () => {
         console.log("gathering Sunlight")
         if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
@@ -100,7 +103,7 @@ class Tabs extends Component {
             this.props.dispatch({ type: 'UPGRADE_CHLOROPHYLL' })
         }
     }
-
+    // Logic for buttons in Research Subtab
     buyIrrigation = () => {
         console.log("buying irrigation")
     }
@@ -114,7 +117,7 @@ class Tabs extends Component {
     buyMobility = () => {
         console.log("buying Mathematics")
     }
-    //conditional displays MAIN COMPONENTS//
+    //conditional displays Production Subtab//
     displayChlorophyll = () => {
         if (this.props.storeEverything.upgrade_chlorophyll_reveal) {
             return <span class="span" onClick={this.upgradeChlorophyll}
@@ -129,7 +132,7 @@ class Tabs extends Component {
                 Expand Roots</span>
         };
     }
-    //MOUSEOVERS
+    //PRODUCTION MOUSEOVERS
     sunlightMouseOver = () => {
         this.setState({
             displaySunlight: !this.state.displaySunlight,
@@ -292,7 +295,7 @@ class Tabs extends Component {
         }
     }
 
-    //main tabs information//
+    //Sub tabs display information//
     displayProduction = () => {
         if (this.state.displayProduction) {
             return <div>

@@ -46,7 +46,7 @@ class Resource extends Component {
     }
     displaySap = () => {
         if (this.props.storeEverything.resource_sap_reveal) {
-            return <p>Current Sap: {this.props.storeEverything.resource_sap}/{this.props.storeEverything.resource_sap_max} </p>
+            return <p>Sap: {this.props.storeEverything.resource_sap}/{this.props.storeEverything.resource_sap_max} </p>
         };
     }
     displaySapButton = () => {
@@ -56,12 +56,12 @@ class Resource extends Component {
     }
     displayScience = () => {
         if (this.props.storeEverything.resource_science_reveal) {
-            return <p>Current Science: {this.props.storeEverything.resource_science}/{this.props.storeEverything.resource_science_max} </p>
+            return <p>Science: {this.props.storeEverything.resource_science}/{this.props.storeEverything.resource_science_max} </p>
         };
     }
     displayTreefolk = () => {
         if (this.props.storeEverything.resource_treefolk_reveal) {
-            return <div><p>Current treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
+            return <div><p>Treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
             <p>Unassigned Treefolk: {this.props.storeEverything.resource_treefolk_unassigned} </p>
             <p> </p>
             <p>Occupations:</p>
