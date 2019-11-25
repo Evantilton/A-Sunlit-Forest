@@ -3,6 +3,11 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
+
+
+
+
+
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY, 
     "username" VARCHAR (80) UNIQUE,
@@ -43,7 +48,7 @@ CREATE TABLE "user" (
   "upgrade_roots_reveal" BOOLEAN DEFAULT false,
   "upgrade_chlorophyll_reveal" BOOLEAN DEFAULT false,
   "upgrade_bark_reveal" BOOLEAN DEFAULT false,
-  "resource_sunlight" FLOAT DEFAULT 0,
+  "resource_sunlight" FLOAT(30) DEFAULT 0,
   "resource_sap_cost" FLOAT DEFAULT 100,
   "resource_sunlight_reveal" BOOLEAN DEFAULT false,
   "resource_population" FLOAT DEFAULT 0,
@@ -77,5 +82,28 @@ CREATE TABLE "user" (
   "resource_sunstone_flavor_text_one" VARCHAR DEFAULT 'You have aquired a sunstone!',
   "resource_treefolk_unassigned" FLOAT DEFAULT 0,
   "resource_treefolk_assigned" FLOAT DEFAULT 0,
-  "resource_sunstone_reveal" BOOLEAN DEFAULT false
+  "resource_sunstone_reveal" BOOLEAN DEFAULT false,
+  "text_save" VARCHAR DEFAULT 'Game Saved',
+  "season" FLOAT DEFAULT 2,
+  "season_winter_modifer" FLOAT DEFAULT .5,
+  "season_winter_text_name" VARCHAR DEFAULT  'Winter',
+  "season_winter_text_flavor" VARCHAR DEFAULT  'Cool winds blow through bare branches, winter is here.',
+  "season_spring_modifer" FLOAT DEFAULT  1.25,
+  "season_spring_text_name" VARCHAR DEFAULT  'Spring',
+  "season_spring_text_flavor" VARCHAR DEFAULT  'Leaves bud and trees sprout, spring is here.',
+  "season_summer_modifer" FLOAT DEFAULT  1.5,
+  "season_summer_text_name" VARCHAR DEFAULT  'Summer',
+  "season_summer_text_flavor" VARCHAR DEFAULT  'Long days and warm nights, summer is here.',
+  "season_fall_modifer" FLOAT DEFAULT  .75,
+  "season_fall_text_name" VARCHAR DEFAULT  'Fall',
+  "season_fall_text_flavor" VARCHAR DEFAULT  'Leaves turn and blow in the wind, fall is here.',
+  "year" FLOAT DEFAULT  0,
+  "year_text" VARCHAR DEFAULT 'A new year is here.',
+  "research_horticulture" BOOLEAN DEFAULT false,
+  "research_horticulture_text" VARCHAR DEFAULT 'research_horticulture_text',
+  "research_horticulture_cost" FLOAT DEFAULT 100,
+  "research_calendar" BOOLEAN DEFAULT false,
+  "research_calendar_text" VARCHAR DEFAULT 'research_calendar_text',
+  "research_calendar_cost" FLOAT DEFAULT 100,
+  "resource_sunlight_modifier" FLOAT DEFAULT 1
 );

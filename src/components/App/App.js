@@ -17,7 +17,7 @@ import AboutPage from '../AboutPage/AboutPage';
 // import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import Gameplay from '../Gameplay/Gameplay';
-import Header from '../Gameplay/Header/Header';
+
 
 import './App.css';
 
@@ -41,7 +41,7 @@ class App extends Component {
               path="/about"
               component={AboutPage}
             />
-            <Route exact path="/" component={Header}/>
+            
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.

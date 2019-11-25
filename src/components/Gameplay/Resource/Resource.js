@@ -23,21 +23,6 @@ class Resource extends Component {
         }
     }
 
-    subtractThinker = () => {
-        console.log("subtracting Thinker")
-        if (this.props.storeEverything.resource_scientist > 0) {
-            this.props.dispatch({ type: 'SUBTRACT_THINKER'});
-            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text});
-        }
-    }
-
-     addThinker = () => {
-        console.log("Adding Thinker")
-        if (this.props.storeEverything.resource_treefolk_unassigned > 0) {
-            this.props.dispatch({ type: 'ADD_THINKER'});
-            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text});
-        }
-    }
     //Conditional Displays//
     displaySunlight = () => {
         if (this.props.storeEverything.resource_sunlight_reveal) {
@@ -66,7 +51,7 @@ class Resource extends Component {
             <p> </p>
             <p>Occupations:</p>
             <p>Thinker: {this.props.storeEverything.resource_scientist}/{this.props.storeEverything.resource_treefolk} 
-                
+            
             </p>
             </div>
         };
@@ -92,6 +77,58 @@ class Resource extends Component {
             return  <button onClick={()=> this.useSunstone()}> Use Sunstone</button>
         };
     }
+    
+    //occupations besides thinker
+    displayFarmer = () => {
+        if (this.props.storeEverything.resource_population_reveal) {
+            return <><div><p>FARMER {this.props.storeEverything.resource_farmer}/{this.props.storeEverything.resource_treefolk} </p></div>
+            <div><button onClick={() => this.subtractFarmer()}> - </button><button onClick={() => this.addFarmer()}> + </button> </div></>
+        };
+    }
+    displayBuilder = () => {
+        if (this.props.storeEverything.resource_population_reveal) {
+            return <div><p> GARDENER {this.props.storeEverything.resource_builder}/{this.props.storeEverything.resource_treefolk} </p></div>
+            {/* <div><button onClick={() => this.subtractBuilder()}> - </button><button onClick={() => this.addBuilder()}> + </button> </div></> */}
+        };
+    }
+    
+    displayExplorer = () => {
+        if (this.props.storeEverything.resource_population_reveal) {
+            return <div><p> EXPLORER: {this.props.storeEverything.resource_explorer}/{this.props.storeEverything.resource_treefolk} </p></div>
+            // <div><button onClick={() => this.subtractExplorer()}> - </button><button onClick={() => this.addExplorer()}> + </button> </div></>
+        };
+    }
+
+       //Occupation Buttons
+       subtractThinker = () => {
+        console.log("subtracting Thinker")
+        if (this.props.storeEverything.resource_scientist > 0) {
+            this.props.dispatch({ type: 'SUBTRACT_THINKER'});
+        }
+    }
+
+     addThinker = () => {
+        console.log("Adding Thinker")
+        if (this.props.storeEverything.resource_treefolk_unassigned > 0) {
+            this.props.dispatch({ type: 'ADD_THINKER'});
+        }
+    }
+
+    subtractFarmer = () => {
+        console.log("subtracting Thinker")
+        if (this.props.storeEverything.resource_farmer > 0) {
+            this.props.dispatch({ type: 'SUBTRACT_FARMER'});
+        }
+    }
+
+     addFarmer = () => {
+        console.log("Adding Thinker")
+        if (this.props.storeEverything.resource_treefolk_unassigned > 0) {
+            this.props.dispatch({ type: 'ADD_FARMER'});
+        }
+    }
+
+
 
     render() {
 
@@ -106,6 +143,9 @@ class Resource extends Component {
                         {this.displayScience()}
                         {this.displayTreefolk()}
                         {this.displayTreefolkButton()}
+                        {this.displayFarmer()}
+                        {this.displayBuilder()}
+                        {this.displayExplorer()}
                         {this.displayPopulation()}
                         {this.displaySunstone()}
                         {this.displaySunstoneButton()}

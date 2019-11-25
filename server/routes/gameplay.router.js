@@ -6,30 +6,27 @@ const router = express.Router();
  * GET route template
  */
 // router.get('/', (req, res) => {
-    
-// });
-router.get('/',  (req, res) => {
-    const queryText = 'SELECT * FROM "user" WHERE "id" = $1';
-    pool.query(queryText, [req.user.id])
-      .then((result) => 
-      
-      { res.send(result.rows); })
-      .catch((err) => {
-        console.log('Error completing SELECT everything query', err);
-        res.sendStatus(500);
-      });
-  });
 
-  router.delete('/',  (req, res) => {
-    const queryText = 'DELETE FROM "user" WHERE "id" = $1';
-    pool.query(queryText, [req.user.id])
-      .then((result) => 
-      { res.send(result.rows); })
-      .catch((err) => {
-        console.log('Error completing DELETE everything query', err);
-        res.sendStatus(500);
-      });
-  });
+// });
+router.get('/', (req, res) => {
+  const queryText = 'SELECT * FROM "user" WHERE "id" = $1';
+  pool.query(queryText, [req.user.id])
+    .then((result) => { res.send(result.rows); })
+    .catch((err) => {
+      console.log('Error completing SELECT everything query', err);
+      res.sendStatus(500);
+    });
+});
+
+router.delete('/', (req, res) => {
+  const queryText = 'DELETE FROM "user" WHERE "id" = $1';
+  pool.query(queryText, [req.user.id])
+    .then((result) => { res.send(result.rows); })
+    .catch((err) => {
+      console.log('Error completing DELETE everything query', err);
+      res.sendStatus(500);
+    });
+});
 
 router.put('/', (req, res) => {
   const queryText =
@@ -104,7 +101,30 @@ router.put('/', (req, res) => {
   "resource_sunstone_flavor_text_one"=$68,
   "resource_treefolk_unassigned"=$69,
   "resource_treefolk_assigned"=$70,
-  "resource_sunstone_reveal"=$71
+  "resource_sunstone_reveal"=$71,
+  "text_save"=$72,
+  "season"=$73,
+  "season_winter_modifer"=$74,
+  "season_winter_text_name"=$75,
+  "season_winter_text_flavor"=$76,
+  "season_spring_modifer"=$77,
+  "season_spring_text_name" =$78,
+  "season_spring_text_flavor" =$79,
+  "season_summer_modifer" =$80,
+  "season_summer_text_name" =$81,
+  "season_summer_text_flavor" =$82,
+  "season_fall_modifer" =$83,
+  "season_fall_text_name" =$84,
+  "season_fall_text_flavor" =$85,
+  "year" =$86,
+  "year_text" =$87,
+  "research_horticulture" =$88,
+  "research_horticulture_text"=$89,
+  "research_horticulture_cost" =$90,
+  "research_calendar" =$91,
+  "research_calendar_text" =$92,
+  "research_calendar_cost"=$93,
+  "resource_sunlight_modifier"=$94
   
     WHERE "id"=$1`;
   const values = [
@@ -178,7 +198,30 @@ router.put('/', (req, res) => {
     req.body.resource_sunstone_flavor_text_one,
     req.body.resource_treefolk_unassigned,
     req.body.resource_treefolk_assigned,
-    req.body.resource_sunstone_reveal
+    req.body.resource_sunstone_reveal,
+    req.body.text_save,
+    req.body.season,
+    req.body.season_winter_modifer,
+    req.body.season_winter_text_name,
+    req.body.season_winter_text_flavor,
+    req.body.season_spring_modifer,
+    req.body.season_spring_text_name,
+    req.body.season_spring_text_flavor,
+    req.body.season_summer_modifer,
+    req.body.season_summer_text_name,
+    req.body.season_summer_text_flavor,
+    req.body.season_fall_modifer,
+    req.body.season_fall_text_name,
+    req.body.season_fall_text_flavor,
+    req.body.year,
+    req.body.year_text,
+    req.body.research_horticulture,
+    req.body.research_horticulture_text,
+    req.body.research_horticulture_cost,
+    req.body.research_calendar,
+    req.body.research_calendar_text,
+    req.body.research_calendar_cost,
+    req.body.resource_sunlight_modifier,
   ];
 
   pool.query(queryText, values)

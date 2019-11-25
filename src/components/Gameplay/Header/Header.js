@@ -9,17 +9,18 @@ class Header extends Component {
         this.props.dispatch({ type: 'DELETE_EVERYTHING'});
         window.location.reload();
     }
-
-
-  
-    
-
+    manualSave = () => {
+        console.log("in manual Save")
+        
+        this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.text_save })
+        this.props.saveFunction();
+    }
     render() {
 
         return (
             <>
                 <header>
-                    <button onClick={() => this.props.saveFunction}> save </button>
+                    <button onClick={() => this.manualSave()}> save </button>
                     <button onClick={() => this.deleteFunction()}>delete</button>
                 </header>
             </>

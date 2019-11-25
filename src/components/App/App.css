@@ -11,7 +11,7 @@ body {
     font-family: 'Trajan Pro Regular';
     font-style: normal;
     font-weight: normal;
-    src: local('Trajan Pro Regular'), url('TrajanPro-Regular.woff') format('woff');
+    src: local('Trajan Pro Regular'), url('/fonts/TrajanPro-Regular.woff') format('woff');
     }
     
     
@@ -19,7 +19,7 @@ body {
     font-family: 'Trajan Pro Bold';
     font-style: normal;
     font-weight: normal;
-    src: local('Trajan Pro Bold'), url('TrajanPro-Bold.woff') format('woff');
+    src: local('Trajan Pro Bold'), url('/fonts/TrajanPro-Bold.woff') format('woff');
     }
 .headerTest {
         font-family: 'Trajan Pro Regular';
@@ -27,7 +27,6 @@ body {
         font-weight: normal;
     }
 .logoImage {
-        
         Height: 200px;
         width: auto;
     }

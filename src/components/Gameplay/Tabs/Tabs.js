@@ -23,6 +23,7 @@ class Tabs extends Component {
         displayChlorophyll: false,
         displayProduction: true,
         displayResearch: false,
+        displayGarden: false,
         displayCrafting: false,
         displayIrrigation: false,
         displayHorticulture: false,
@@ -44,6 +45,8 @@ class Tabs extends Component {
     research = () => {
         if ((this.props.storeEverything.resource_scientist > 0) && (this.props.storeEverything.resource_science < this.props.storeEverything.resource_science_max)) {
             this.props.dispatch({ type: 'RESEARCH' })
+        } else if ((this.props.resource_science > this.props.resource_science_max)) {
+            this.props.dispatch({ type: 'RESEARCH_MAX'})
         }
     }
     //Logic for buttons in Production Subtab
@@ -276,7 +279,7 @@ class Tabs extends Component {
         this.setState({
             displayProduction: true,
             displayResearch: false,
-
+            displayGarden: false,
         })
     }
     researchShow = () => {
@@ -284,9 +287,19 @@ class Tabs extends Component {
         this.setState({
             displayProduction: false,
             displayResearch: true,
+            displayGarden: false,
 
         })
     }
+    gardenShow = () => {
+        console.log(this.state)
+        this.setState({
+            displayProduction: false,
+            displayResearch: false,
+            displayGarder: true,
+        })
+    }
+    
     //conditional render tabs
     displayResearchTab = () => {
         if (this.props.storeEverything.resource_science_reveal) {
@@ -294,8 +307,14 @@ class Tabs extends Component {
             return <td><span class="tabSpan" onClick={() => this.researchShow()}>Research - </span></td>
         }
     }
+    displayGardenTab = () => {
+        if (this.props.storeEverything.resource_science_reveal) {
+            console.log(this.state)
+            return <td><span class="tabSpan" onClick={() => this.gardenShow()}>Garden - </span></td>
+        }
+    }
 
-    //Sub tabs display information//
+    //Sub tabs main render//
     displayProduction = () => {
         if (this.state.displayProduction) {
             return <div>
@@ -342,6 +361,13 @@ class Tabs extends Component {
             </div>
         }
     }
+    displayGarden = () => {
+        if (this.state.displayGarden) {
+            return <div>
+                <h1>GARDEN</h1>
+            </div>
+        }
+    }
 
     render() {
 
@@ -352,9 +378,10 @@ class Tabs extends Component {
                         <span class="tabSpan">A Sunlit Forest </span>
                     </div>
                     <div className="smallTab">
-                        <table> <td><span class="tabSpan" onClick={() => this.productionShow()} >Production - </span></td> {this.displayResearchTab()} </table> </div>
+                        <table> <td><span class="tabSpan" onClick={() => this.productionShow()} >Production - </span></td> {this.displayResearchTab()} {this.displayGardenTab()} </table> </div>
                     {this.displayProduction()}
                     {this.displayResearch()}
+                    {this.displayGarden()}
 
                 </div>
             </>
