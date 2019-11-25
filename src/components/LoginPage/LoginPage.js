@@ -31,6 +31,13 @@ class LoginPage extends Component {
 
   render() {
     return (
+      <>
+      <div class="logoBox">
+        {/* <img class="logoImage" src="images/sunlit-forest-image.jpg"/> */}
+       
+      <h1 class="headerTest">A Sunlit Forest</h1>
+      
+      </div>
       <div>
         {this.props.errors.loginMessage && (
           <h2
@@ -83,6 +90,7 @@ class LoginPage extends Component {
           </button>
         </center>
       </div>
+      </>
     );
   }
 }

@@ -7,7 +7,39 @@ body {
     background-color: #ff4545;
     margin: 50px;
 }
-
+@font-face {
+    font-family: 'Trajan Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Trajan Pro Regular'), url('TrajanPro-Regular.woff') format('woff');
+    }
+    
+    
+    @font-face {
+    font-family: 'Trajan Pro Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Trajan Pro Bold'), url('TrajanPro-Bold.woff') format('woff');
+    }
+.headerTest {
+        font-family: 'Trajan Pro Regular';
+        font-style: normal;
+        font-weight: normal;
+    }
+.logoImage {
+        
+        Height: 200px;
+        width: auto;
+    }
+    
+.logoBox {
+        background-color: #dbd5d5;
+        width: 30%;
+        height: 250px;
+        margin: 20px auto;
+        padding: 5px;
+        border-radius: 2px;
+    }
 form {
     background-color: #dbd5d5;
     width: 30%;

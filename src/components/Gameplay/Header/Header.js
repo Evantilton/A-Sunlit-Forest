@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
 class Header extends Component {
 
     deleteFunction = () => {
         console.log("delete clicked");
         this.props.dispatch({ type: 'DELETE_EVERYTHING'});
+        window.location.reload();
     }
+
+
+  
+    
 
     render() {
 

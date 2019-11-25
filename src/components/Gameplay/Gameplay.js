@@ -7,6 +7,8 @@ import Header from './Header/Header';
 
 import { connect } from 'react-redux';
 
+
+
 class Gameplay extends Component {
     componentDidMount() {
         this.getEverything();
@@ -23,7 +25,6 @@ class Gameplay extends Component {
     saveFunction = () => {
         console.log("savefunction hit: saving the current gamestate");
         this.props.dispatch({ type: 'SAVE_EVERYTHING', payload: this.props.storeEverything});
-        
     }
     render() {
 
@@ -35,6 +36,9 @@ class Gameplay extends Component {
                     <Tabs />
                     <Textbox />
                 </div>
+                {/* added in this one */}
+              
+        
             </>
         );
     };
