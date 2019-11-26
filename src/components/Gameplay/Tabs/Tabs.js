@@ -30,7 +30,7 @@ class Tabs extends Component {
     research = () => {
         if ((this.props.storeEverything.resource_scientist > 0) && (this.props.storeEverything.resource_science < this.props.storeEverything.resource_science_max)) {
             this.props.dispatch({ type: 'RESEARCH' })
-        } else if ((this.props.resource_science > this.props.resource_science_max)) {
+        } else if ((this.props.storeEverything.resource_science > this.props.storeEverything.resource_science_max)) {
             this.props.dispatch({ type: 'RESEARCH_MAX'})
         }
     }

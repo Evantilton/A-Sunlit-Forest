@@ -88,7 +88,6 @@ class Resource extends Component {
     displayBuilder = () => {
         if (this.props.storeEverything.resource_population_reveal) {
             return <div><p> GARDENER {this.props.storeEverything.resource_builder}/{this.props.storeEverything.resource_treefolk} </p></div>
-            {/* <div><button onClick={() => this.subtractBuilder()}> - </button><button onClick={() => this.addBuilder()}> + </button> </div></> */}
         };
     }
     

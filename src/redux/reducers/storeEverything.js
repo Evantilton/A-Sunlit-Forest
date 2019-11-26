@@ -16,7 +16,7 @@ const storeEverything = (state = {}, action) => {
     case 'UPGRADE_CHLOROPHYLL':
       return { ...state, upgrade_chlorophyll: state.upgrade_chlorophyll + 1, click_gather_sunlight: state.click_gather_sunlight + 1, upgrade_chlorophyll_cost: state.upgrade_chlorophyll_cost * 1.2 };
     case 'UPGRADE_ROOTS':
-      return { ...state, resource_population_reveal: true, resource_population: state.resource_population + action.payload, upgrade_roots: state.upgrade_roots + 1, upgrade_roots_cost: state.upgrade_roots_cost * 1.2 };
+      return { ...state, resource_population_reveal: true, resource_population: state.resource_population + action.payload, upgrade_roots: state.upgrade_roots + 1, upgrade_roots_cost: state.upgrade_roots_cost + 1 };
     case 'TREE_FARM':
       return { ...state, resource_sunlight: state.resource_sunlight + (state.resource_population * .5) };
     case 'RESOURCE_SUNSTONE':
@@ -29,6 +29,8 @@ const storeEverything = (state = {}, action) => {
       return { ...state, resource_treefolk_unassigned: state.resource_treefolk_unassigned - 1, resource_science_reveal: true, resource_scientist: state.resource_scientist + 1 };
     case 'RESEARCH':
       return { ...state, resource_science: state.resource_science + (state.resource_scientist * state.resource_scientist_modifier) }
+    case 'RESEARCH_MAX':
+      return { ...state, resource_science: state.resource_science_max }
     case 'CHANGE_SEASON_WINTER':
       return { ...state, season: 1, year: state.year + 1 }
     case 'CHANGE_SEASON_SPRING':

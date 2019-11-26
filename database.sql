@@ -4,10 +4,6 @@
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
 
-
-
-
-
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY, 
     "username" VARCHAR (80) UNIQUE,
@@ -110,6 +106,27 @@ CREATE TABLE "user" (
   "tab_research_show" BOOLEAN DEFAULT false,
   "tab_garden_show" BOOLEAN DEFAULT false,
   "tab_population_show" BOOLEAN DEFAULT false,
-  "tab_exploration_show" BOOLEAN DEFAULT false
+  "tab_exploration_show" BOOLEAN DEFAULT false,
+  "garden_bush" FLOAT DEFAULT 0,
+  "garden_bush_cost" FLOAT DEFAULT 2,
+  "garden_bush_text_one" VARCHAR DEFAULT 'garden bush text',
+  "garden_bush_text_two" VARCHAR DEFAULT 'garden bush text',
+  "garden_bush_text_three" VARCHAR DEFAULT 'garden bush text',
+  "garden_bush_text_four" VARCHAR DEFAULT 'garden bush text',
+  "garden_bush_reveal" BOOLEAN DEFAULT false,
+  "garden_fern" FLOAT DEFAULT 0,
+  "garden_fern_cost" FLOAT DEFAULT 2,
+  "garden_fern_text_one" VARCHAR DEFAULT 'garden fern text',
+  "garden_fern_text_two" VARCHAR DEFAULT 'garden fern text',
+  "garden_fern_text_three" VARCHAR DEFAULT 'garden fern text',
+  "garden_fern_text_four" VARCHAR DEFAULT 'garden fern text',
+  "garden_fern_reveal" BOOLEAN DEFAULT false,
+  "garden_flower" FLOAT DEFAULT 0,
+  "garden_flower_cost" FLOAT DEFAULT 2,
+  "garden_flower_text_one" VARCHAR DEFAULT 'garden flower text',
+  "garden_flower_text_two" VARCHAR DEFAULT 'garden flower text',
+  "garden_flower_text_three" VARCHAR DEFAULT 'garden flower text',
+  "garden_flower_text_four" VARCHAR DEFAULT 'garden flower text',
+  "garden_flower_reveal" BOOLEAN DEFAULT false
 );
 

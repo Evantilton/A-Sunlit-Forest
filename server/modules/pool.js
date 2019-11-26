@@ -24,7 +24,7 @@ if (process.env.DATABASE_URL) {
     database: params.pathname.split('/')[1],
     ssl: true, // heroku requires ssl to be true
     max: 10, // max number of clients in the pool
-    idleTimeoutMillis: 30000, //was 30000 how long a client is allowed to remain idle before being closed
+    idleTimeoutMillis: 0, //was 30000 how long a client is allowed to remain idle before being closed
   };
 } else {
   config = {
@@ -32,7 +32,7 @@ if (process.env.DATABASE_URL) {
     port: 5432, // env var: PGPORT
     database: 'a_sunlit_forest', // CHANGE THIS LINE! env var: PGDATABASE, this is likely the one thing you need to change to get up and running
     max: 10, // max number of clients in the pool
-    idleTimeoutMillis: 30000, // was 30000how long a client is allowed to remain idle before being closed
+    idleTimeoutMillis: 0, // was 30000how long a client is allowed to remain idle before being closed
   };
 }
 
