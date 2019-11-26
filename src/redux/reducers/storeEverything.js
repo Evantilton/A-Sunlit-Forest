@@ -8,7 +8,7 @@ const storeEverything = (state = {}, action) => {
     case 'GATHER_SUNLIGHT':
       return { ...state, resource_sunlight_reveal: true, resource_sunlight: state.resource_sunlight + state.click_gather_sunlight };
     case 'GATHER_SUNLIGHT_MAX':
-      return { ...state, resource_sunlight: state.resource_sunlight_max }
+      return { ...state, upgrade_bark_reveal: true, resource_sunlight: state.resource_sunlight_max }
     case 'BUY_SAP':
       return { ...state, resource_sap: state.resource_sap + 1, resource_sunlight: (state.resource_sunlight) - (state.resource_sap_cost) };
     case 'REVEAL_CHLOROPHYLL':
@@ -40,8 +40,13 @@ const storeEverything = (state = {}, action) => {
     case 'SUBTRACT_FARMER':
       return { ...state, resource_treefolk_unassigned: state.resource_treefolk_unassigned + 1, resource_farmer: state.resource_farmer - 1 };
     case 'ADD_FARMER':
-        return { ...state, resource_treefolk_unassigned: state.resource_treefolk_unassigned - 1, resource_farmer: state.resource_farmer + 1 };
-
+      return { ...state, resource_treefolk_unassigned: state.resource_treefolk_unassigned - 1, resource_farmer: state.resource_farmer + 1 };
+    case 'TAB_PRODUCTION_SHOW':
+      return { ...state, tab_production_show: true, tab_research_show: false, tab_garden_show: false, tab_population_show: false, tab_exploration_show: false }
+    case 'TAB_RESEARCH_SHOW':
+      return { ...state, tab_production_show: false, tab_research_show: true, tab_garden_show: false, tab_population_show: false, tab_exploration_show: false }
+    case 'TAB_GARDEN_SHOW':
+      return { ...state, tab_production_show: false, tab_research_show: false, tab_garden_show: true, tab_population_show: false, tab_exploration_show: false }
     default:
       return state;
   }

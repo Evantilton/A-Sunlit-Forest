@@ -15,7 +15,7 @@ class Textbox extends Component {
                     <p>You are a tree in a sunlit forest.</p>
                     <ul>
                         {this.props.gameText.map((text) =>
-                            <li>{text}</li>)}
+                            <p>{text}</p>)}
                     </ul>
                 </div>
             </>

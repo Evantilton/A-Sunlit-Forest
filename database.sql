@@ -105,5 +105,11 @@ CREATE TABLE "user" (
   "research_calendar" BOOLEAN DEFAULT false,
   "research_calendar_text" VARCHAR DEFAULT 'research_calendar_text',
   "research_calendar_cost" FLOAT DEFAULT 100,
-  "resource_sunlight_modifier" FLOAT DEFAULT 1
+  "resource_sunlight_modifier" FLOAT DEFAULT 1,
+  "tab_production_show" BOOLEAN DEFAULT true,
+  "tab_research_show" BOOLEAN DEFAULT false,
+  "tab_garden_show" BOOLEAN DEFAULT false,
+  "tab_population_show" BOOLEAN DEFAULT false,
+  "tab_exploration_show" BOOLEAN DEFAULT false
 );
+
