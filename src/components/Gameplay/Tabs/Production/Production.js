@@ -31,40 +31,40 @@ class Production extends Component {
     upgradeRoots = () => {
         console.log("upgrading Roots")
 
-        // if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_roots_cost) {
+        if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_roots_cost) {
 
-        this.props.dispatch({ type: 'UPGRADE_ROOTS', payload: (Math.floor(Math.random() * (7 - 1)) + 1) })
-        // } 
-        if (this.props.storeEverything.upgrade_roots === 0) {
-            this.props.dispatch({
-                type: 'TEXT',
-                payload: this.props.storeEverything.upgrade_roots_flavor_text_one
-            })
-        } else if (this.props.storeEverything.upgrade_roots === 1) {
-            this.props.dispatch({
-                type: 'TEXT',
-                payload: this.props.storeEverything.upgrade_roots_flavor_text_two
-            })
-        } else if (this.props.storeEverything.upgrade_roots === 2) {
-            this.props.dispatch({
-                type: 'TEXT',
-                payload: this.props.storeEverything.upgrade_roots_flavor_text_three
-            })
-        } else if (this.props.storeEverything.upgrade_roots >= 3 && this.props.storeEverything.resource_sunstone_reveal === false) {
-            this.props.dispatch({
-                type: 'TEXT',
-                payload: this.props.storeEverything.upgrade_roots_flavor_text_four
-            });
-            this.props.dispatch({ type: 'RESOURCE_SUNSTONE' });
-            this.props.dispatch({
-                type: 'TEXT',
-                payload: this.props.storeEverything.resource_sunstone_flavor_text_one
-            });
-        } else {
-            this.props.dispatch({
-                type: 'TEXT',
-                payload: this.props.storeEverything.upgrade_roots_flavor_text_one
-            })
+            this.props.dispatch({ type: 'UPGRADE_ROOTS', payload: (Math.floor(Math.random() * (7 - 1)) + 1) })
+            if (this.props.storeEverything.upgrade_roots === 0) {
+                this.props.dispatch({
+                    type: 'TEXT',
+                    payload: this.props.storeEverything.upgrade_roots_flavor_text_one
+                })
+            } else if (this.props.storeEverything.upgrade_roots === 1) {
+                this.props.dispatch({
+                    type: 'TEXT',
+                    payload: this.props.storeEverything.upgrade_roots_flavor_text_two
+                })
+            } else if (this.props.storeEverything.upgrade_roots === 2) {
+                this.props.dispatch({
+                    type: 'TEXT',
+                    payload: this.props.storeEverything.upgrade_roots_flavor_text_three
+                })
+            } else if (this.props.storeEverything.upgrade_roots >= 3 && this.props.storeEverything.resource_sunstone_reveal === false) {
+                this.props.dispatch({
+                    type: 'TEXT',
+                    payload: this.props.storeEverything.upgrade_roots_flavor_text_four
+                });
+                this.props.dispatch({ type: 'RESOURCE_SUNSTONE' });
+                this.props.dispatch({
+                    type: 'TEXT',
+                    payload: this.props.storeEverything.resource_sunstone_flavor_text_one
+                });
+            } else {
+                this.props.dispatch({
+                    type: 'TEXT',
+                    payload: this.props.storeEverything.upgrade_roots_flavor_text_one
+                })
+            }
         }
     }
 
@@ -75,8 +75,11 @@ class Production extends Component {
     }
 
     upgradeBark = () => {
-
+        if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_bark_cost) {
+            this.props.dispatch({ type: 'UPGRADE_BARK' })
+        }
     }
+
     //conditional displays Production Subtab//
 
     displayRoots = () => {

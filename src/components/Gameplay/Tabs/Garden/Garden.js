@@ -11,14 +11,21 @@ class Garden extends Component {
 
     // Logic for buttons in Research Subtab
     buyBush = () => {
-        console.log("buying bush")
+        if (this.props.storeEverything.resource_soil > this.props.storeEverything.garden_bush_cost) {
+            this.props.dispatch({ type: 'BUY_GARDEN_BUSH' })
+        }
     }
-
     buyFern = () => {
-        console.log("buying fern")
+        console.log("buying fern");
+        if (this.props.storeEverything.resource_soil > this.props.storeEverything.garden_fern_cost) {
+            this.props.dispatch({ type: 'BUY_GARDEN_FERN' })
+        }
     }
     buyFlower = () => {
-        console.log("buying flower")
+        console.log("buying flower");
+        if (this.props.storeEverything.resource_soil > this.props.storeEverything.garden_flower_cost) {
+            this.props.dispatch({ type: 'BUY_GARDEN_FLOWER' })
+        }
     }
     //research mouseover
     bushMouseOver = () => {
@@ -49,7 +56,7 @@ class Garden extends Component {
             return <span class="floatSpan">
                 <h1>Sap Bush</h1>
                 <p>This bush is efficient and storing sap.</p>
-                <p>cost: Sap {this.props.storeEverything.garden_bush_cost}</p>
+                <p>cost: Soil {this.props.storeEverything.garden_bush_cost}</p>
                 <p>Effects: +10 sap storage</p>
                 <p class="flavor">flavor text</p>
             </span>
@@ -60,7 +67,7 @@ class Garden extends Component {
             return <span class="floatSpan">
                 <h1>Delicate Fern</h1>
                 <p>Hivemind, ferns help process ideas.</p>
-                <p>cost: Sap {this.props.storeEverything.garden_fern_cost}</p>
+                <p>cost: Soil {this.props.storeEverything.garden_fern_cost}</p>
                 <p>Effects: +10 research storage</p>
                 <p class="flavor">Quick to grow, quick to learn</p>
             </span>
@@ -71,7 +78,7 @@ class Garden extends Component {
             return <span class="floatSpan">
                 <h1>Mountain Flower</h1>
                 <p>Each holds a little bit of sunlight.</p>
-                <p>cost: Sap {this.props.storeEverything.garden_fern_cost}</p>
+                <p>cost: Soil {this.props.storeEverything.garden_fern_cost}</p>
                 <p>Effects: +10 to sunlight storage.</p>
                 <p class="flavor">Praise the sun!</p>
 
@@ -97,12 +104,12 @@ class Garden extends Component {
                     <tr><span class="span" onClick={this.buyFlower}
                         onMouseOver={this.flowerMouseOver} onMouseOut={this.flowerMouseOver}>
                         Mountain Flower </span> </tr>
-                    
+
                 </table>
                 {this.displayBushText()}
                 {this.displayFernText()}
                 {this.displayFlowerText()}
-                
+
             </div>
         }
     }

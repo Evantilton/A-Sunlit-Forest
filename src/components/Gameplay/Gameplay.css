@@ -49,6 +49,8 @@ header {
     padding-left: 8px;
     /* top: 20px; */
     position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .span {

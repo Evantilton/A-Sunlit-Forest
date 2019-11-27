@@ -37,7 +37,7 @@ CREATE TABLE "user" (
   "upgrade_bark" FLOAT DEFAULT 0,
   "upgrade_roots_cost" FLOAT DEFAULT 2,
   "upgrade_chlorophyll_cost" FLOAT DEFAULT 2,
-  "upgrade_bark_cost" FLOAT DEFAULT 100,
+  "upgrade_bark_cost" FLOAT DEFAULT 2,
   "upgrade_roots_text" VARCHAR DEFAULT 100,
   "upgrade_chlorophyll_text" VARCHAR DEFAULT 'upgrade_chloro_text',
   "upgrade_bark_text" VARCHAR DEFAULT 'upgrade_bark_text',
@@ -127,6 +127,28 @@ CREATE TABLE "user" (
   "garden_flower_text_two" VARCHAR DEFAULT 'garden flower text',
   "garden_flower_text_three" VARCHAR DEFAULT 'garden flower text',
   "garden_flower_text_four" VARCHAR DEFAULT 'garden flower text',
-  "garden_flower_reveal" BOOLEAN DEFAULT false
+  "garden_flower_reveal" BOOLEAN DEFAULT false,
+  "resource_gardener" FLOAT DEFAULT 0,
+  "resource_gardener_reveal" BOOLEAN DEFAULT false,
+  "resource_gardener_max" FLOAT DEFAULT 1000,
+  "resource_gardener_modifier" FLOAT DEFAULT 1,
+  "resource_soil" FLOAT DEFAULT 0,
+  "resource_soil_reveal" BOOLEAN DEFAULT false,
+  "resource_soil_max" FLOAT DEFAULT 100,
+  "resource_soil_text" VARCHAR DEFAULT 'soil text filler',
+  "exploration_forest" FLOAT DEFAULT 1,
+  "exploration_forest_max" FLOAT DEFAULT 100,
+  "exploration_reveal" BOOLEAN DEFAULT false,
+  "research_mathematics" BOOLEAN DEFAULT false,
+  "research_mobility" BOOLEAN DEFAULT false,
+  "research_sunstone" BOOLEAN DEFAULT false,
+  "research_mathematics_text" VARCHAR DEFAULT 'research_mathematics_text',
+  "research_mobility_text" VARCHAR DEFAULT'research_mobility_text',
+  "research_sunstone_text" VARCHAR DEFAULT 'research_sunstone_text',
+  "research_mathematics_cost" FLOAT DEFAULT 100,
+  "research_mobility_cost" FLOAT DEFAULT 100,
+  "research_sunstone_cost" FLOAT DEFAULT 100
 );
+
+
 

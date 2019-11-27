@@ -17,6 +17,14 @@ class Textbox extends Component {
                         {this.props.gameText.map((text) =>
                             <p>{text}</p>)}
                     </ul>
+                    {/* <p>{this.props.gameText[0]}</p>
+                    <p>{this.props.gameText[1]}</p>
+                    <p>{this.props.gameText[2]}</p>
+                    <p>{this.props.gameText[3]}</p>
+                    <p>{this.props.gameText[4]}</p>
+                    <p>{this.props.gameText[5]}</p>
+                    <p>{this.props.gameText[6]}</p>
+                    <p>{this.props.gameText[7]}</p> */}
                 </div>
             </>
         );

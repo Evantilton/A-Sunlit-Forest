@@ -18,8 +18,8 @@ class Resource extends Component {
     useSunstone = () => {
         console.log("using Sunstone")
         if (this.props.storeEverything.resource_sunstone > 0) {
-            this.props.dispatch({ type: 'BUY_TREEFOLK'});
-            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text});
+            this.props.dispatch({ type: 'BUY_TREEFOLK' });
+            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text });
         }
     }
 
@@ -44,24 +44,7 @@ class Resource extends Component {
             return <p>Science: {this.props.storeEverything.resource_science}/{this.props.storeEverything.resource_science_max} </p>
         };
     }
-    displayTreefolk = () => {
-        if (this.props.storeEverything.resource_treefolk_reveal) {
-            return <div><p>Treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
-            <p>Unassigned Treefolk: {this.props.storeEverything.resource_treefolk_unassigned} </p>
-            <p> </p>
-            <p>Occupations:</p>
-            <p>Thinker: {this.props.storeEverything.resource_scientist}/{this.props.storeEverything.resource_treefolk} 
-            
-            </p>
-            </div>
-        };
-    }
 
-    displayTreefolkButton = () => {
-        if (this.props.storeEverything.resource_treefolk_reveal) {
-       return  <> <div><button onClick={() => this.subtractThinker()}> - </button><button onClick={() => this.addThinker()}> + </button> </div></>
-    }
-}
     displayPopulation = () => {
         if (this.props.storeEverything.resource_population_reveal) {
             return <div><p>Forest Colony: population {this.props.storeEverything.resource_population}</p></div>
@@ -74,59 +57,15 @@ class Resource extends Component {
     }
     displaySunstoneButton = () => {
         if (this.props.storeEverything.resource_sunstone_reveal) {
-            return  <button onClick={()=> this.useSunstone()}> Use Sunstone</button>
-        };
-    }
-    
-    //occupations besides thinker
-    displayFarmer = () => {
-        if (this.props.storeEverything.resource_population_reveal) {
-            return <><div><p>FARMER {this.props.storeEverything.resource_farmer}/{this.props.storeEverything.resource_treefolk} </p></div>
-            <div><button onClick={() => this.subtractFarmer()}> - </button><button onClick={() => this.addFarmer()}> + </button> </div></>
-        };
-    }
-    displayBuilder = () => {
-        if (this.props.storeEverything.resource_population_reveal) {
-            return <div><p> GARDENER {this.props.storeEverything.resource_builder}/{this.props.storeEverything.resource_treefolk} </p></div>
-        };
-    }
-    
-    displayExplorer = () => {
-        if (this.props.storeEverything.resource_population_reveal) {
-            return <div><p> EXPLORER: {this.props.storeEverything.resource_explorer}/{this.props.storeEverything.resource_treefolk} </p></div>
-            // <div><button onClick={() => this.subtractExplorer()}> - </button><button onClick={() => this.addExplorer()}> + </button> </div></>
+            return <button onClick={() => this.useSunstone()}> Use Sunstone</button>
         };
     }
 
-       //Occupation Buttons
-       subtractThinker = () => {
-        console.log("subtracting Thinker")
-        if (this.props.storeEverything.resource_scientist > 0) {
-            this.props.dispatch({ type: 'SUBTRACT_THINKER'});
+    displaySoil = () => {
+        if (this.props.storeEverything.resource_soil_reveal) {
+            return <p>Soil: {this.props.storeEverything.resource_soil}/{this.props.storeEverything.resource_soil_max}</p>
         }
     }
-
-     addThinker = () => {
-        console.log("Adding Thinker")
-        if (this.props.storeEverything.resource_treefolk_unassigned > 0) {
-            this.props.dispatch({ type: 'ADD_THINKER'});
-        }
-    }
-
-    subtractFarmer = () => {
-        console.log("subtracting Thinker")
-        if (this.props.storeEverything.resource_farmer > 0) {
-            this.props.dispatch({ type: 'SUBTRACT_FARMER'});
-        }
-    }
-
-     addFarmer = () => {
-        console.log("Adding Thinker")
-        if (this.props.storeEverything.resource_treefolk_unassigned > 0) {
-            this.props.dispatch({ type: 'ADD_FARMER'});
-        }
-    }
-
 
 
     render() {
@@ -140,14 +79,10 @@ class Resource extends Component {
                         {this.displaySap()}
                         {this.displaySapButton()}
                         {this.displayScience()}
-                        {this.displayTreefolk()}
-                        {this.displayTreefolkButton()}
-                        {this.displayFarmer()}
-                        {this.displayBuilder()}
-                        {this.displayExplorer()}
                         {this.displayPopulation()}
                         {this.displaySunstone()}
                         {this.displaySunstoneButton()}
+                        {this.displaySoil()}
                     </span>
                 </div>
             </>

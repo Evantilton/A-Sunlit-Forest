@@ -14,17 +14,28 @@ class Research extends Component {
     // Logic for buttons in Research Subtab
     buyIrrigation = () => {
         console.log("buying irrigation")
+        if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_irrigation_cost)) {
+            this.props.dispatch({ type: 'RESEARCH_IRRIGATION' })
     }
-
+}
     buyHorticulture = () => {
-        console.log("buying horticulture")
+        console.log("buying horticulture");
+        if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_horticulture_cost)) {
+            this.props.dispatch({ type: 'RESEARCH_HORTICULTURE' })
     }
+}
     buyMathematics = () => {
-        console.log("buying Mathematics")
+        console.log("buying Mathematics");
+        if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_mathematics_cost)) {
+            this.props.dispatch({ type: 'RESEARCH_MATHEMATICS' })
     }
+}
     buyMobility = () => {
-        console.log("buying Mathematics")
+        console.log("buying Mobility");
+        if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_mobility_cost)) {
+            this.props.dispatch({ type: 'RESEARCH_MOBILITY' })
     }
+}
     //research mouseover
     irrigationMouseOver = () => {
         this.setState({
@@ -65,20 +76,20 @@ class Research extends Component {
             return <span class="floatSpan">
                 <h1>Research: Irrigation</h1>
                 <p>The study of efficient watering methods</p>
-                <p>cost: 100 research</p>
+                <p>cost: 100 science</p>
                 <p>Effects: +.5% population growth</p>
-                <p class="flavor">*gulp *gulp</p>
+        <p class="flavor">*gulp *gulp </p>
             </span>
         }
     }
     displayHornicultureText = () => {
-        if (this.state.displayHorticulture) {
+        if (this.state.displayHorticulture)  {
             return <span class="floatSpan">
                 <h1>Research: Horniculture</h1>
                 <p>Lets grow a garden!</p>
-                <p>cost: 100 research</p>
+                <p>cost: 100 science</p>
                 <p>Effects: unlocks Garden</p>
-                <p class="flavor">Happy little trees</p>
+                <p class="flavor">Happy little trees {this.props.storeEverything.research_horniculture}</p>
             </span>
         }
     }
@@ -87,21 +98,21 @@ class Research extends Component {
             return <span class="floatSpan">
                 <h1>Research: Mathematics</h1>
                 <p>One Tree, Two Tree, Three Tree, Four</p>
-                <p>cost: 100 research</p>
+                <p>cost: 100 science</p>
                 <p>Effects: displays per second resource generation</p>
-                <p class="flavor">At what number do trees become a forest?</p>
+                <p class="flavor">At what number do trees become a forest? {this.props.storeEverything.research_mathematics}</p>
 
             </span>
         }
     }
     displayMobilityText = () => {
-        if (this.state.displayMobility) {
+        if (this.state.displayMobility)  {
             return <span class="floatSpan">
                 <h1>Research: Mobility</h1>
                 <p>Learn how to uproot yourself.</p>
-                <p>cost: 100 Research </p>
+                <p>cost: 100 science </p>
                 <p> Effects: Unlocks Explorer</p>
-                <p class="flavor">Freeeeeeeeeddddooomm</p>
+                <p class="flavor">Freeeeeeeeeddddooomm {this.props.storeEverything.research_mobility}</p>
             </span>
         }
     }
@@ -114,7 +125,7 @@ class Research extends Component {
                 <table>
                     <tr><span class="span" onClick={this.buyIrrigation}
                         onMouseOver={this.irrigationMouseOver} onMouseOut={this.irrigationMouseOver}>
-                        Irrigation </span></tr>
+                        Irrigation </span></tr> 
                     <tr><span class="span" onClick={this.buyMathematics}
                         onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
                         Mathematics </span> </tr>

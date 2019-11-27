@@ -32,10 +32,10 @@ class LoginPage extends Component {
   render() {
     return (
       <>
-      <div class="logoBox">
+      <div className="logoBox">
         {/* <img class="logoImage" src="images/sunlit-forest-image.jpg"/> */}
        
-      <h1 class="headerTest">A Sunlit Forest</h1>
+      <h1 className="headerTest">A Sunlit Forest</h1>
       
       </div>
       <div>

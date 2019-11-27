@@ -1,3 +1,18 @@
+.waffle {
+    display: flex;
+    flex-wrap: wrap;
+    width: 140px;
+  }
+  
+  .block {
+    width: 10px;
+    height: 10px;
+    margin: 2px;
+  }
+
+
+
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
