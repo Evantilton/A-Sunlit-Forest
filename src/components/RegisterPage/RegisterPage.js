@@ -74,6 +74,7 @@ class RegisterPage extends Component {
           </div>
         </form>
         <center>
+        <span className="buttonSpan">
           <button
             type="button"
             className="link-button"
@@ -81,6 +82,7 @@ class RegisterPage extends Component {
           >
             Login
           </button>
+          </span>
         </center>
       </div>
     );

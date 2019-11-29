@@ -15,16 +15,8 @@ class Textbox extends Component {
                     <p>You are a tree in a sunlit forest.</p>
                     <ul>
                         {this.props.gameText.map((text) =>
-                            <p>{text}</p>)}
+                            <p className="ptag">{text}</p>)}
                     </ul>
-                    {/* <p>{this.props.gameText[0]}</p>
-                    <p>{this.props.gameText[1]}</p>
-                    <p>{this.props.gameText[2]}</p>
-                    <p>{this.props.gameText[3]}</p>
-                    <p>{this.props.gameText[4]}</p>
-                    <p>{this.props.gameText[5]}</p>
-                    <p>{this.props.gameText[6]}</p>
-                    <p>{this.props.gameText[7]}</p> */}
                 </div>
             </>
         );

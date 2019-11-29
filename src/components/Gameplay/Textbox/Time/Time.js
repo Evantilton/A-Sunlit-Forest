@@ -46,7 +46,7 @@ displaySeason = () => {
             {this.displaySeason()}
             
             <p>Current Year: {this.props.storeEverything.year}</p>
-            <p>TEST: CURRENT MOD: {this.props.storeEverything.resource_sunlight_modifier}</p>
+            {/* <p>TEST: CURRENT MOD: {this.props.storeEverything.resource_sunlight_modifier}</p> */}
             </div>     
             </>
         );

@@ -8,41 +8,41 @@ class Occupation extends Component {
 
     displayTreefolk = () => {
         if (this.props.storeEverything.resource_treefolk_reveal) {
-            return <div><p>Treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </p>
-                <p>Unassigned Treefolk: {this.props.storeEverything.resource_treefolk_unassigned} </p>
+            return <div><span className="resource">Treefolk: {this.props.storeEverything.resource_treefolk}/{this.props.storeEverything.resource_treefolk} </span>
+                <span className="resource">Unassigned Treefolk: {this.props.storeEverything.resource_treefolk_unassigned} </span>
                 <p> </p>
-                <p>Occupations:</p>
-                <p>Thinker: {this.props.storeEverything.resource_scientist}/{this.props.storeEverything.resource_treefolk}
+                <span className="resource">Occupations:</span>
+                <span className="resource">Thinker: {this.props.storeEverything.resource_scientist}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractThinker()}> - </button><button onClick={() => this.addThinker()}> + </button>
 
-                </p>
+                </span>
             </div>
         };
     }
 
-    displayTreefolkButton = () => {
-        if (this.props.storeEverything.resource_treefolk_reveal) {
-            return <> <div><button onClick={() => this.subtractThinker()}> - </button><button onClick={() => this.addThinker()}> + </button> </div></>
-        }
-    }
+    // displayTreefolkButton = () => {
+    //     if (this.props.storeEverything.resource_treefolk_reveal) {
+    //         return <> <div><button onClick={() => this.subtractThinker()}> - </button><button onClick={() => this.addThinker()}> + </button> </div></>
+    //     }
+    // }
 
     //occupations besides thinker
     displayFarmer = () => {
         if (this.props.storeEverything.resource_population_reveal) {
-            return <><div><p>FARMER {this.props.storeEverything.resource_farmer}/{this.props.storeEverything.resource_treefolk} </p></div>
-                <div><button onClick={() => this.subtractFarmer()}> - </button><button onClick={() => this.addFarmer()}> + </button> </div></>
+            return <><div><span className="resource">FARMER {this.props.storeEverything.resource_farmer}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractFarmer()}> - </button><button onClick={() => this.addFarmer()}> + </button> </span></div>
+                </>
         };
     }
     displayGardener = () => {
         if (this.props.storeEverything.resource_population_reveal) {
-            return <><div><p> GARDENER {this.props.storeEverything.resource_gardener}/{this.props.storeEverything.resource_treefolk} </p></div>
-            <div><button onClick={() => this.subtractGardener()}> - </button><button onClick={() => this.addGardener()}> + </button> </div></>
+            return <><div><span className="resource"> GARDENER {this.props.storeEverything.resource_gardener}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractGardener()}> - </button><button onClick={() => this.addGardener()}> + </button>  </span></div>
+            <div></div></>
         };
     }
 
     displayExplorer = () => {
         if (this.props.storeEverything.resource_population_reveal) {
-            return <><div><p> EXPLORER: {this.props.storeEverything.resource_explorer}/{this.props.storeEverything.resource_treefolk} </p></div>
-            <div><button onClick={() => this.subtractExplorer()}> - </button><button onClick={() => this.addExplorer()}> + </button> </div></>
+            return <><div><span className="resource">EXPLORER: {this.props.storeEverything.resource_explorer}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractExplorer()}> - </button><button onClick={() => this.addExplorer()}> + </button>  </span></div>
+            <div></div></>
         };
     }
 
@@ -100,14 +100,14 @@ class Occupation extends Component {
 
     displayOccupation = () => {
         if (this.props.storeEverything.tab_population_show) {
-            return <><div><h1>Treefolk</h1>
-                <table>
+            return <><div>
+                
                     {this.displayTreefolk()}
-                    {this.displayTreefolkButton()}
+                    {/* {this.displayTreefolkButton()} */}
                     {this.displayFarmer()}
                     {this.displayGardener()}
                     {this.displayExplorer()}
-                </table>
+               
             </div>
             </>
         }

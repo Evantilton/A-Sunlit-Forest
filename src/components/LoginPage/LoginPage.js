@@ -32,12 +32,12 @@ class LoginPage extends Component {
   render() {
     return (
       <>
-      <div className="logoBox">
+      {/* <div className="logoBox"> */}
         {/* <img class="logoImage" src="images/sunlit-forest-image.jpg"/> */}
        
-      <h1 className="headerTest">A Sunlit Forest</h1>
+      {/* <h1 className="headerTest">A Sunlit Forest</h1> */}
       
-      </div>
+      {/* </div> */}
       <div>
         {this.props.errors.loginMessage && (
           <h2
@@ -81,13 +81,14 @@ class LoginPage extends Component {
           </div>
         </form>
         <center>
+          <span className="buttonSpan">
           <button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
             Register
-          </button>
+          </button> </span>
         </center>
       </div>
       </>

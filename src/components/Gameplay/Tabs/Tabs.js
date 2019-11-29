@@ -74,25 +74,25 @@ class Tabs extends Component {
     //conditional render tabs
     displayResearchTab = () => {
         if (this.props.storeEverything.resource_science_reveal) {
-            return <td><span className="tabSpan" onClick={() => this.researchShow()}>Research - </span></td>
+            return <td><span className="tabSpan" onClick={() => this.researchShow()}>Research </span></td>
         }
     }
     displayGardenTab = () => {
         if (this.props.storeEverything.resource_science_reveal) {
-            return <td><span className="tabSpan" onClick={() => this.gardenShow()}>Garden - </span></td>
+            return <td><span className="tabSpan" onClick={() => this.gardenShow()}>Garden </span></td>
         }
     }
 
     displayOccupationTab = () => {
         if (this.props.storeEverything.resource_treefolk_reveal) {
-            return <td><span className="tabSpan" onClick={() => this.occupationShow()}>Occupation - </span></td>
+            return <td><span className="tabSpan" onClick={() => this.occupationShow()}>Occupation </span></td>
         }
     }
     displayExplorationTab = () => {
         //this one belowis the correct one, I just need to make sure it's working
         // if (this.props.storeEverything.resource_explorer_reveal) {
         if (this.props.storeEverything.resource_treefolk_reveal) {
-            return <td><span className="tabSpan" onClick={() => this.explorationShow()}>Exploration - </span></td>
+            return <td><span className="tabSpan" onClick={() => this.explorationShow()}>Exploration </span></td>
         }
     }
 
@@ -106,7 +106,7 @@ class Tabs extends Component {
                         <span className="tabSpan">A Sunlit Forest </span>
                     </div>
                     <div className="smallTab">
-                        <table> <td><span className="tabSpan" onClick={() => this.productionShow()} >Production - </span>
+                        <table> <td><span className="tabSpan" onClick={() => this.productionShow()} >Production </span>
                         </td> {this.displayResearchTab()} {this.displayGardenTab()} {this.displayOccupationTab()} {this.displayExplorationTab()}</table> </div>
 
                     <Production />

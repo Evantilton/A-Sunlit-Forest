@@ -6,6 +6,7 @@ import * as d3 from "d3";
 
 class Exploration extends Component {
 
+   
 
     sendExpedition = () => {
         console.log("on an expedition");
@@ -18,6 +19,7 @@ class Exploration extends Component {
 
     displayExploration = () => {
         if (this.props.storeEverything.tab_exploration_show) {
+            
             return <div>
                 <p>Area explored: {this.props.storeEverything.exploration_forest}/100</p>
                 <button onClick={() => this.sendExpedition()}>send expedition</button>
