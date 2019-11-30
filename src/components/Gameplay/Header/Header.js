@@ -21,7 +21,9 @@ class Header extends Component {
             <>
                 <header>
                     <button onClick={() => this.manualSave()}> save </button>
+                    <button> reset </button>
                     <button onClick={() => this.deleteFunction()}>delete</button>
+                    <button>ver</button>
                 </header>
             </>
         );

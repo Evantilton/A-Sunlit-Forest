@@ -7,8 +7,19 @@ class Garden extends Component {
         displayBush: false,
         displayFern: false,
         displayFlower: false,
+        // percentage: 1000,
     }
-
+//progressbar
+// progressBar = (props) => {
+//     return (
+//         <div className="progress-bar">
+//             {this.filler()}
+//         </div>
+//     )
+// }
+//   filler = (props) => {
+//     return <div className="filler" style={{ width: this.state.percentage}} /> 
+// }
     // Logic for buttons in Research Subtab
     buyBush = () => {
         if (this.props.storeEverything.resource_soil > this.props.storeEverything.garden_bush_cost) {
@@ -57,6 +68,7 @@ class Garden extends Component {
                 <h1>Sap Bush</h1>
                 <p>This bush is efficient and storing sap.</p>
                 <p>cost: Soil {this.props.storeEverything.garden_bush_cost}</p>
+
                 <p>Effects: +10 sap storage</p>
                 <p class="flavor">flavor text</p>
             </span>
@@ -109,7 +121,6 @@ class Garden extends Component {
                 {this.displayBushText()}
                 {this.displayFernText()}
                 {this.displayFlowerText()}
-
             </div>
         }
     }
@@ -120,6 +131,7 @@ class Garden extends Component {
             <>
                 <div>
                     {this.displayGarden()}
+                    {/* {this.progressBar()} */}
                 </div>
             </>
         );
