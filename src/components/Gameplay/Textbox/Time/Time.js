@@ -7,9 +7,10 @@ class Time extends Component {
         
         setInterval(() => {
             this.timeFunction();
-        }, 50000);
+        }, 60000);
     }
 //Timefunction handles the month and year changes
+//month changes every 2.5 minutes, year every 10 minutes
 timeFunction = () => {
       if (this.props.storeEverything.season === 4) {
             this.props.dispatch({ type: 'CHANGE_SEASON_WINTER', payload: this.props.storeEverything.season_winter_modifier});

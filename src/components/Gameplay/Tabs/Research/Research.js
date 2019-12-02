@@ -16,26 +16,26 @@ class Research extends Component {
         console.log("buying irrigation")
         if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_irrigation_cost)) {
             this.props.dispatch({ type: 'RESEARCH_IRRIGATION' })
+        }
     }
-}
     buyHorticulture = () => {
         console.log("buying horticulture");
         if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_horticulture_cost)) {
             this.props.dispatch({ type: 'RESEARCH_HORTICULTURE' })
+        }
     }
-}
     buyMathematics = () => {
         console.log("buying Mathematics");
         if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_mathematics_cost)) {
             this.props.dispatch({ type: 'RESEARCH_MATHEMATICS' })
+        }
     }
-}
     buyMobility = () => {
         console.log("buying Mobility");
         if ((this.props.storeEverything.resource_science >= this.props.storeEverything.research_mobility_cost)) {
             this.props.dispatch({ type: 'RESEARCH_MOBILITY' })
+        }
     }
-}
     //research mouseover
     irrigationMouseOver = () => {
         this.setState({
@@ -74,22 +74,20 @@ class Research extends Component {
     displayIrrigationText = () => {
         if (this.state.displayIrrigation) {
             return <span class="floatSpan">
-                <h1>Research: Irrigation</h1>
-                <p>The study of efficient watering methods</p>
+                <h1>Research: Farming</h1>
+                <p>The study of efficient sunfarming</p>
                 <p>cost: 100 science</p>
-                <p>Effects: +.5% population growth</p>
-        <p class="flavor">*gulp *gulp </p>
+                <p>Effects: unlocks farmer</p>
             </span>
         }
     }
     displayHornicultureText = () => {
-        if (this.state.displayHorticulture)  {
+        if (this.state.displayHorticulture) {
             return <span class="floatSpan">
-                <h1>Research: Horniculture</h1>
+                <h1>Research: Gardening</h1>
                 <p>Lets grow a garden!</p>
                 <p>cost: 100 science</p>
                 <p>Effects: unlocks Garden</p>
-                <p class="flavor">Happy little trees {this.props.storeEverything.research_horniculture}</p>
             </span>
         }
     }
@@ -100,41 +98,76 @@ class Research extends Component {
                 <p>One Tree, Two Tree, Three Tree, Four</p>
                 <p>cost: 100 science</p>
                 <p>Effects: displays per second resource generation</p>
-                <p class="flavor">At what number do trees become a forest? {this.props.storeEverything.research_mathematics}</p>
 
             </span>
         }
     }
     displayMobilityText = () => {
-        if (this.state.displayMobility)  {
+        if (this.state.displayMobility) {
             return <span class="floatSpan">
-                <h1>Research: Mobility</h1>
-                <p>Learn how to uproot yourself.</p>
+                <h1>Research: Uprooting</h1>
+                <p>Learn how to move.</p>
                 <p>cost: 100 science </p>
                 <p> Effects: Unlocks Explorer</p>
-                <p class="flavor">Freeeeeeeeeddddooomm {this.props.storeEverything.research_mobility}</p>
             </span>
         }
     }
 
+    displayUprooting = () => {
+        if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.storeEverything.research_mobility === false)) {
+            return <span class="span" onClick={this.buyMobility}
+                onMouseOver={this.mobilityMouseOver} onMouseOut={this.mobilityMouseOver}>
+                Uprooting </span>
+        } if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.storeEverything.research_mobility === true)) {
+            return <span class="span" onClick={this.buyMobility}
+                onMouseOver={this.mobilityMouseOver} onMouseOut={this.mobilityMouseOver}>
+                Uprooting (researched)</span>
+        }
+    }
 
+    displayGardening = () => {
+        if ((this.props.storeEverything.research_irrigation === true) && (this.props.storeEverything.research_horticulture === false)) {
+            return <span class="span" onClick={this.buyHorticulture}
+                onMouseOver={this.horticultureMouseOver} onMouseOut={this.horticultureMouseOver}>
+                Gardening </span>
+        } else if ((this.props.storeEverything.research_irrigation === true) && (this.props.storeEverything.research_horticulture === true)) {
+            return <span class="span" onClick={this.buyHorticulture}
+                onMouseOver={this.horticultureMouseOver} onMouseOut={this.horticultureMouseOver}>
+                Gardening (researched) </span>
+        }
+    }
+
+    displayMathematics = () => {
+        if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.research_mathematics === false))  {
+            return <span class="span" onClick={this.buyMathematics}
+                onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
+                Mathematics </span>
+        } else if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.storeEverything.research_mathematics === true)) {
+            return <span class="span" onClick={this.buyMathematics}
+                onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
+                Mathematics (researched) </span>
+        }
+    }
+    displayIrrigation = () => {
+        if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.storeEverything.research_irrigation === false)) {
+            return <span class="span" onClick={this.buyIrrigation}
+                onMouseOver={this.irrigationMouseOver} onMouseOut={this.irrigationMouseOver}>
+                Farming </span>
+        } else if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.storeEverything.research_irrigation === true)) {
+            return <span class="span" onClick={this.buyIrrigation}
+                onMouseOver={this.irrigationMouseOver} onMouseOut={this.irrigationMouseOver}>
+                Farming (researched) </span>
+        }
+    }
 
     displayResearch = () => {
         if (this.props.storeEverything.tab_research_show) {
             return <div>
                 <table>
-                    <tr><span class="span" onClick={this.buyIrrigation}
-                        onMouseOver={this.irrigationMouseOver} onMouseOut={this.irrigationMouseOver}>
-                        Irrigation </span></tr> 
-                    <tr><span class="span" onClick={this.buyMathematics}
-                        onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
-                        Mathematics </span> </tr>
-                    <tr><span class="span" onClick={this.buyHorticulture}
-                        onMouseOver={this.horticultureMouseOver} onMouseOut={this.horticultureMouseOver}>
-                        Horticulture </span> </tr>
-                    <tr><span class="span" onClick={this.buyMobility}
-                        onMouseOver={this.mobilityMouseOver} onMouseOut={this.mobilityMouseOver}>
-                        Mobility </span></tr>
+                    <tr>{this.displayIrrigation()}</tr>
+                    <tr> {this.displayMathematics()} </tr>
+                    <tr> {this.displayGardening()} </tr>
+                    <tr> {this.displayUprooting()}</tr>
                 </table>
                 {this.displayIrrigationText()}
                 {this.displayMathematicsText()}
@@ -151,6 +184,7 @@ class Research extends Component {
             <>
                 <div>
                     {this.displayResearch()}
+
                 </div>
             </>
         );

@@ -12,9 +12,9 @@ const storeEverything = (state = {}, action) => {
     case 'BUY_SAP':
       return { ...state, resource_sap: state.resource_sap + 1, resource_sunlight: (state.resource_sunlight) - (state.resource_sap_cost) };
     case 'REVEAL_CHLOROPHYLL':
-      return { ...state, upgrade_chlorophyll_reveal: true, upgrade_roots_reveal: true, resource_sap_reveal: true };
+      return { ...state, upgrade_chlorophyll_reveal: true, resource_sap_reveal: true };
     case 'UPGRADE_CHLOROPHYLL':
-      return { ...state, upgrade_chlorophyll: state.upgrade_chlorophyll + 1, click_gather_sunlight: state.click_gather_sunlight + 1, upgrade_chlorophyll_cost: state.upgrade_chlorophyll_cost * 1.2 };
+      return { ...state, resource_sap: state.resource_sap - state.upgrade_chlorophyll_cost, upgrade_roots_reveal: true, upgrade_chlorophyll: state.upgrade_chlorophyll + 1, click_gather_sunlight: state.click_gather_sunlight + 1,  upgrade_chlorophyll_cost: state.upgrade_chlorophyll_cost +2};
     case 'UPGRADE_ROOTS':
       return { ...state, resource_population_reveal: true, resource_population: state.resource_population + action.payload, resource_sap: state.resource_sap - state.upgrade_roots_cost, upgrade_roots: state.upgrade_roots + 1, upgrade_roots_cost: state.upgrade_roots_cost + 1 };
     case 'UPGRADE_BARK':
@@ -68,15 +68,21 @@ const storeEverything = (state = {}, action) => {
     case 'BUY_GARDEN_FLOWER':
       return { ...state, resource_sunlight_max: state.resource_sunlight_max + 10, resource_soil: state.resource_soil - (state.garden_flower_cost), garden_bush_cost: state.garden_flower_cost + 1 }
     case 'RESEARCH_IRRIGATION':
-      return { ...state, resource_science: state.resource_science - state.research_irrigation_cost, research_irrigation: true}
+      return { ...state, resource_farmer_reveal: true, resource_science: state.resource_science - state.research_irrigation_cost, research_irrigation: true}
     case 'RESEARCH_HORTICULTURE':
-      return { ...state, resource_science: state.resource_science - state.research_horticulture_cost, research_horticulture: true}
+      return { ...state, resource_gardener_reveal: true, resource_science: state.resource_science - state.research_horticulture_cost, research_horticulture: true}
     case 'RESEARCH_MATHEMATICS':
       return { ...state, resource_science: state.resource_science - state.research_mathematics_cost, research_mathematics: true}
+    case 'EXPEDITION':
+      return {...state, exploration_reveal: true}
     case 'RESEARCH_MOBILITY':
-      return { ...state, resource_science: state.resource_science - state.research_mobility_cost, research_mobility: true}
+      return { ...state, resource_explorer_reveal: true, resource_science: state.resource_science - state.research_mobility_cost, research_mobility: true}
     case 'EXPLORE':
-      return {...state, exploration_forest: state.exploration_forest +1}
+      return {...state, exploration_forest: state.exploration_forest +1, exploration_reveal: false, expedition_timer: 0}
+    case 'EXPEDITION':
+      return {...state, exploration_reveal: true}
+    case 'EXPLORE_TIMER':
+      return {...state, expedition_timer: state.expedition_timer + state.resource_explorer}
     case 'CHANGE_SEASON_WINTER':
       return { ...state, season: 1, year: state.year + 1 }
     case 'CHANGE_SEASON_SPRING':

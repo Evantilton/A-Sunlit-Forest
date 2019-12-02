@@ -3,7 +3,6 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
-
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY, 
     "username" VARCHAR (80) UNIQUE,
@@ -13,8 +12,8 @@ CREATE TABLE "user" (
   "resource_sap" FLOAT DEFAULT 0,
   "resource_treefolk" FLOAT DEFAULT 0,
   "resource_science" FLOAT DEFAULT 0,
-  "resource_sunlight_text" VARCHAR DEFAULT 0,
-  "resource_sap_text" VARCHAR DEFAULT 'resource_sap_text',
+  "resource_sunlight_text" VARCHAR DEFAULT 'resource sunlight unlocked',
+  "resource_sap_text" VARCHAR DEFAULT 'resource sap unlocked',
   "resource_science_text" VARCHAR DEFAULT 'resource_science_text',
   "resource_sunlight_max" FLOAT DEFAULT 1000,
   "resource_sap_max" FLOAT DEFAULT 200,
@@ -38,9 +37,9 @@ CREATE TABLE "user" (
   "upgrade_roots_cost" FLOAT DEFAULT 2,
   "upgrade_chlorophyll_cost" FLOAT DEFAULT 2,
   "upgrade_bark_cost" FLOAT DEFAULT 2,
-  "upgrade_roots_text" VARCHAR DEFAULT 100,
-  "upgrade_chlorophyll_text" VARCHAR DEFAULT 'upgrade_chloro_text',
-  "upgrade_bark_text" VARCHAR DEFAULT 'upgrade_bark_text',
+  "upgrade_roots_text" VARCHAR DEFAULT 'deeper roots unlocked',
+  "upgrade_chlorophyll_text" VARCHAR DEFAULT 'greener leaves unlocked',
+  "upgrade_bark_text" VARCHAR DEFAULT 'thicker bark unlocked',
   "upgrade_roots_reveal" BOOLEAN DEFAULT false,
   "upgrade_chlorophyll_reveal" BOOLEAN DEFAULT false,
   "upgrade_bark_reveal" BOOLEAN DEFAULT false,
@@ -72,9 +71,9 @@ CREATE TABLE "user" (
   "resource_sunstone_text" VARCHAR DEFAULT 'a little piece of the sun',
   "resource_sunstone_modifier" FLOAT DEFAULT 1,
   "upgrade_roots_flavor_text_one" VARCHAR DEFAULT 'Your roots expand and entwine with the trees around you.',
-  "upgrade_roots_flavor_text_two" VARCHAR DEFAULT 'As your roots expand, you can feel something bright below.',
-  "upgrade_roots_flavor_text_three" VARCHAR DEFAULT 'As above, so below.  The warmth increases.  You are getting close.',
-  "upgrade_roots_flavor_text_four" VARCHAR DEFAULT 'Your roots entwine around an object as bright as the sun in you mind.',
+  "upgrade_roots_flavor_text_two" VARCHAR DEFAULT 'As your roots expand, you can feel something deep below.',
+  "upgrade_roots_flavor_text_three" VARCHAR DEFAULT 'It calls to you from the depths.',
+  "upgrade_roots_flavor_text_four" VARCHAR DEFAULT 'Your roots twist and entwine around it.  It warms like the sun.',
   "resource_sunstone_flavor_text_one" VARCHAR DEFAULT 'You have aquired a sunstone!',
   "resource_treefolk_unassigned" FLOAT DEFAULT 0,
   "resource_treefolk_assigned" FLOAT DEFAULT 0,
@@ -96,7 +95,7 @@ CREATE TABLE "user" (
   "year" FLOAT DEFAULT  0,
   "year_text" VARCHAR DEFAULT 'A new year is here.',
   "research_horticulture" BOOLEAN DEFAULT false,
-  "research_horticulture_text" VARCHAR DEFAULT 'research_horticulture_text',
+  "research_horticulture_text" VARCHAR DEFAULT 'greener leaves unlocked',
   "research_horticulture_cost" FLOAT DEFAULT 100,
   "research_calendar" BOOLEAN DEFAULT false,
   "research_calendar_text" VARCHAR DEFAULT 'research_calendar_text',
@@ -144,10 +143,23 @@ CREATE TABLE "user" (
   "research_sunstone" BOOLEAN DEFAULT false,
   "research_mathematics_text" VARCHAR DEFAULT 'research_mathematics_text',
   "research_mobility_text" VARCHAR DEFAULT'research_mobility_text',
-  "research_sunstone_text" VARCHAR DEFAULT 'research_sunstone_text',
+  "research_sunstone_text" VARCHAR DEFAULT 'Your mind begins to expand, thoughts flowing like sap in summer.  You open your eyes.',
   "research_mathematics_cost" FLOAT DEFAULT 100,
   "research_mobility_cost" FLOAT DEFAULT 100,
-  "research_sunstone_cost" FLOAT DEFAULT 100
+  "research_sunstone_cost" FLOAT DEFAULT 100,
+  "text_one" VARCHAR DEFAULT 'treefolk unlocked',
+  "text_two" VARCHAR DEFAULT 'thinker occupation unlocked',
+  "text_three" VARCHAR DEFAULT 'farming unlocked',
+  "text_four" VARCHAR DEFAULT 'research gardening unlocked',
+  "text_five" VARCHAR DEFAULT 'garden unlocked',
+  "text_six" VARCHAR DEFAULT 'research uprooting unlocked',
+  "text_seven" VARCHAR DEFAULT 'research mathematics unlocked',
+  "text_eight" VARCHAR DEFAULT 'sap bush unlocked',
+  "text_nine" VARCHAR DEFAULT 'delicate fern unlocked',
+  "text_ten" VARCHAR DEFAULT 'mountain flower unlocked',
+  "text_eleven" VARCHAR DEFAULT 'The woods are lovely, dark, and deep....',
+  "expedition_timer" FLOAT DEFAULT 0,
+  "expedition_timer_max" FLOAT DEFAULT 300
 );
 
 

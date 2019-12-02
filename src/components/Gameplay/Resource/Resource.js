@@ -17,10 +17,13 @@ class Resource extends Component {
 
     useSunstone = () => {
         console.log("using Sunstone")
-        if (this.props.storeEverything.resource_sunstone > 0) {
+        if ((this.props.storeEverything.resource_sunstone > 0) && (this.props.storeEverything.resource_treefolk_reveal === false)) {
             this.props.dispatch({ type: 'BUY_TREEFOLK' });
             this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.resource_sunstone_text });
-        }
+        } else if ((this.props.storeEverything.resource_sunstone > 0)) {
+            this.props.dispatch({ type: 'BUY_TREEFOLK' });
+            this.props.dispatch({ type: 'TEXT', payload: this.props.storeEverything.research_sunstone_text });
+        } 
     }
 
     //Conditional Displays//

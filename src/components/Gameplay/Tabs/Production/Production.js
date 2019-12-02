@@ -6,7 +6,7 @@ class Production extends Component {
     componentDidMount() {
         setInterval(() => {
             this.gatherSunlight();
-        }, 1000);
+        }, 100);
 
     }
     state = {
@@ -18,12 +18,19 @@ class Production extends Component {
 
     //Logic for buttons in Production Subtab
     gatherSunlight = () => {
+
         console.log("gathering Sunlight")
         if (this.props.storeEverything.resource_sunlight >= this.props.storeEverything.resource_sunlight_max) {
             this.props.dispatch({ type: 'GATHER_SUNLIGHT_MAX', payload: this.props.storeEverything.resource_sunlight_max })
-
-        } else if ((this.props.storeEverything.upgrade_chlorophyll_reveal === false) && (this.props.storeEverything.resource_sunlight > 99)) {
+            
+        } else if ((this.props.storeEverything.resource_sunlight_reveal === false))  {
+            this.props.dispatch({ type: 'GATHER_SUNLIGHT' });
+            this.props.dispatch({type: 'TEXT', payload: this.props.storeEverything.resource_sunlight_text })
+        } 
+        else if ((this.props.storeEverything.upgrade_chlorophyll_reveal === false) && (this.props.storeEverything.resource_sunlight > 99)) {
             this.props.dispatch({ type: 'REVEAL_CHLOROPHYLL' })
+            this.props.dispatch({type: 'TEXT', payload: this.props.storeEverything.resource_sap_text });
+            this.props.dispatch({type: 'TEXT', payload: this.props.storeEverything.upgrade_chlorophyll_text});
         } else
             this.props.dispatch({ type: 'GATHER_SUNLIGHT', payload: this.props.storeEverything.click_gather_sunlight })
     }
@@ -69,7 +76,11 @@ class Production extends Component {
     }
 
     upgradeChlorophyll = () => {
-        if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_chlorophyll_cost) {
+        if (this.props.storeEverything.upgrade_roots_reveal === false) {
+            this.props.dispatch({ type: 'UPGRADE_CHLOROPHYLL' });
+            this.props.dispatch({type: 'TEXT', payload: this.props.storeEverything.upgrade_roots_text})
+        }
+        else if (this.props.storeEverything.resource_sap >= this.props.storeEverything.upgrade_chlorophyll_cost) {
             this.props.dispatch({ type: 'UPGRADE_CHLOROPHYLL' })
         }
     }
@@ -86,14 +97,14 @@ class Production extends Component {
         if (this.props.storeEverything.upgrade_roots_reveal) {
             return <span class="span" onClick={this.upgradeRoots}
                 onMouseOver={this.rootsMouseOver} onMouseOut={this.rootsMouseOver}>
-                Expand Roots</span>
+                Deeper Roots</span>
         };
     }
 
     displayChlorophyll = () => {
         if (this.props.storeEverything.upgrade_chlorophyll_reveal) {
             return <span class="span" onClick={this.upgradeChlorophyll}
-                onMouseOver={this.chlorophyllMouseOver} onMouseOut={this.chlorophyllMouseOver}> Chlorophyll Infusion</span>
+                onMouseOver={this.chlorophyllMouseOver} onMouseOut={this.chlorophyllMouseOver}> Greener Leaves</span>
         };
     }
 
@@ -102,7 +113,7 @@ class Production extends Component {
         if (this.props.storeEverything.upgrade_bark_reveal) {
             return <span class="span" onClick={this.upgradeBark}
                 onMouseOver={this.barkMouseOver} onMouseOut={this.barkMouseOver}>
-                Thicken Bark</span>
+                Thicker Bark</span>
         };
     }
     //PRODUCTION MOUSEOVERS
@@ -145,7 +156,6 @@ class Production extends Component {
 
                 <p>Spread your leaves and gather sunlight.</p>
 
-                {/* <p class="flavor">tasty!</p> */}
 
             </span>
         }
@@ -153,26 +163,23 @@ class Production extends Component {
     displayRootsText = () => {
         if (this.state.displayRoots) {
             return <span class="floatSpan">
-                <h1> Root Expansion</h1>
+                <h1> Deeper Roots</h1>
                 <p>Connects you to the trees around you.</p>
-
                 <p>Level: {this.props.storeEverything.upgrade_roots}</p>
                 <p>Sap Cost: {this.props.storeEverything.upgrade_roots_cost}</p>
                 <p>Effect: The trees in your colony provide passive sunlight generation.</p>
-                <p class="flavor">Deep roots are not reached by the frost.</p>
             </span>
         }
     }
     displayChlorophyllText = () => {
         if (this.state.displayChlorophyll) {
             return <span class="floatSpan">
-                <h1> Chlorophyll Infusion</h1>
-                <p>Greener is better.</p>
+                <h1> Greener Leaves</h1>
+                <p>Greener leaves take in more sunlight.</p>
 
                 <p>Level: {this.props.storeEverything.upgrade_chlorophyll}</p>
                 <p>Sap Cost: {this.props.storeEverything.upgrade_chlorophyll_cost}</p>
                 <p>Effect: increase your per click sunlight generation.</p>
-                <p class="flavor">What is a trees favorite color? green.</p>
             </span>
         }
     }
@@ -180,12 +187,11 @@ class Production extends Component {
         if (this.state.displayBark) {
             return <span class="floatSpan">
                 <h1> Thicken Bark</h1>
-                <p>More bark means more sunlight!</p>
+                <p>More bark holds more sunlight.</p>
 
                 <p>Level: {this.props.storeEverything.upgrade_bark}</p>
                 <p>Sap Cost: {this.props.storeEverything.upgrade_bark_cost}</p>
                 <p>Effect: increase sunlight storage.</p>
-                <p class="flavor">More bark than bite.</p>
             </span>
         }
     }

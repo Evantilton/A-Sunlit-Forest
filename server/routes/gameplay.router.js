@@ -170,7 +170,20 @@ router.put('/', (req, res) => {
   "research_sunstone_text"=$137,
   "research_mathematics_cost"=$138,
   "research_mobility_cost"=$139,
-  "research_sunstone_cost"=$140
+  "research_sunstone_cost"=$140,
+  "text_one"=$141,
+  "text_two"=$142,
+  "text_three"=$143,
+  "text_four"=$144,
+  "text_five"=$145,
+  "text_six"=$146,
+  "text_seven"=$147,
+  "text_eight"=$148,
+  "text_nine"=$149,
+  "text_ten"=$150,
+  "text_eleven"=$151,
+  "expedition_timer"=$152,
+  "expedition_timer_max"=$153
     WHERE "id"=$1`;
   const values = [
     req.user.id,
@@ -313,6 +326,19 @@ router.put('/', (req, res) => {
     req.body.research_mathematics_cost,
     req.body.research_mobility_cost,
     req.body.research_sunstone_cost,
+    req.body.text_one,
+    req.body.text_two,
+    req.body.text_three,
+    req.body.text_four,
+    req.body.text_five,
+    req.body.text_six,
+    req.body.text_seven,
+    req.body.text_eight,
+    req.body.text_nine,
+    req.body.text_ten,
+    req.body.text_eleven,
+    req.body.expedition_timer,
+    req.body.expedition_timer_max,
   ];
 
   pool.query(queryText, values)

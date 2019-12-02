@@ -66,11 +66,10 @@ class Garden extends Component {
         if (this.state.displayBush) {
             return <span class="floatSpan">
                 <h1>Sap Bush</h1>
-                <p>This bush is efficient and storing sap.</p>
+                <p>This bush is efficient at storing sap.</p>
                 <p>cost: Soil {this.props.storeEverything.garden_bush_cost}</p>
 
                 <p>Effects: +10 sap storage</p>
-                <p class="flavor">flavor text</p>
             </span>
         }
     }
@@ -78,10 +77,9 @@ class Garden extends Component {
         if (this.state.displayFern) {
             return <span class="floatSpan">
                 <h1>Delicate Fern</h1>
-                <p>Hivemind, ferns help process ideas.</p>
+                <p>Quick to grow, quick to learn.</p>
                 <p>cost: Soil {this.props.storeEverything.garden_fern_cost}</p>
                 <p>Effects: +10 research storage</p>
-                <p class="flavor">Quick to grow, quick to learn</p>
             </span>
         }
     }
@@ -92,7 +90,6 @@ class Garden extends Component {
                 <p>Each holds a little bit of sunlight.</p>
                 <p>cost: Soil {this.props.storeEverything.garden_fern_cost}</p>
                 <p>Effects: +10 to sunlight storage.</p>
-                <p class="flavor">Praise the sun!</p>
 
             </span>
         }
@@ -104,7 +101,7 @@ class Garden extends Component {
 
 
     displayGarden = () => {
-        if (this.props.storeEverything.tab_garden_show) {
+        if (this.props.storeEverything.tab_garden_show)  {
             return <div>
                 <table>
                     <tr><span class="span" onClick={this.buyBush}

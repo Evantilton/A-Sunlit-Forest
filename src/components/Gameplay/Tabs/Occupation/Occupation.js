@@ -27,24 +27,32 @@ class Occupation extends Component {
 
     //occupations besides thinker
     displayFarmer = () => {
-        if (this.props.storeEverything.resource_population_reveal) {
-            return <><div><span className="resource">FARMER {this.props.storeEverything.resource_farmer}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractFarmer()}> - </button><button onClick={() => this.addFarmer()}> + </button> </span></div>
+        if (this.props.storeEverything.resource_farmer_reveal === true) {
+            return <><div><span className="resource">Farmer {this.props.storeEverything.resource_farmer}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractFarmer()}> - </button><button onClick={() => this.addFarmer()}> + </button> </span></div>
                 </>
         };
     }
     displayGardener = () => {
-        if (this.props.storeEverything.resource_population_reveal) {
-            return <><div><span className="resource"> GARDENER {this.props.storeEverything.resource_gardener}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractGardener()}> - </button><button onClick={() => this.addGardener()}> + </button>  </span></div>
+        if (this.props.storeEverything.resource_gardener_reveal === true) {
+            return <><div><span className="resource"> Gardener {this.props.storeEverything.resource_gardener}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractGardener()}> - </button><button onClick={() => this.addGardener()}> + </button>  </span></div>
             <div></div></>
         };
     }
 
     displayExplorer = () => {
-        if (this.props.storeEverything.resource_population_reveal) {
-            return <><div><span className="resource">EXPLORER: {this.props.storeEverything.resource_explorer}/{this.props.storeEverything.resource_treefolk} <button onClick={() => this.subtractExplorer()}> - </button><button onClick={() => this.addExplorer()}> + </button>  </span></div>
-            <div></div></>
+        if (this.props.storeEverything.resource_explorer_reveal === true) {
+            return <><div><span className="resource">Explorer: {this.props.storeEverything.resource_explorer}/{this.props.storeEverything.resource_treefolk} {this.expedition()} </span></div></>
         };
     }
+    expedition() {
+        if ((this.props.storeEverything.exploration_reveal === true)) {
+            return <p>On Expedition</p>
+        } else if ((this.props.storeEverything.exploration_reveal === false)) {
+           return  <> <button onClick={() => this.subtractExplorer()}> - </button><button onClick={() => this.addExplorer()}> + </button> </>
+        }
+    }
+ 
+
 
     //Occupation Buttons
     subtractThinker = () => {
@@ -101,12 +109,14 @@ class Occupation extends Component {
     displayOccupation = () => {
         if (this.props.storeEverything.tab_population_show) {
             return <><div>
-                
+                    <table>
                     {this.displayTreefolk()}
+                   
                     {/* {this.displayTreefolkButton()} */}
                     {this.displayFarmer()}
                     {this.displayGardener()}
                     {this.displayExplorer()}
+                    </table>
                
             </div>
             </>

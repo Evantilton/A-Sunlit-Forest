@@ -78,7 +78,7 @@ class Tabs extends Component {
         }
     }
     displayGardenTab = () => {
-        if (this.props.storeEverything.resource_science_reveal) {
+        if (this.props.storeEverything.research_horticulture) {
             return <td><span className="tabSpan" onClick={() => this.gardenShow()}>Garden </span></td>
         }
     }
@@ -91,7 +91,7 @@ class Tabs extends Component {
     displayExplorationTab = () => {
         //this one belowis the correct one, I just need to make sure it's working
         // if (this.props.storeEverything.resource_explorer_reveal) {
-        if (this.props.storeEverything.resource_treefolk_reveal) {
+        if (this.props.storeEverything.research_mobility) {
             return <td><span className="tabSpan" onClick={() => this.explorationShow()}>Exploration </span></td>
         }
     }
