@@ -19,11 +19,6 @@ class Occupation extends Component {
         };
     }
 
-    // displayTreefolkButton = () => {
-    //     if (this.props.storeEverything.resource_treefolk_reveal) {
-    //         return <> <div><button onClick={() => this.subtractThinker()}> - </button><button onClick={() => this.addThinker()}> + </button> </div></>
-    //     }
-    // }
 
     //occupations besides thinker
     displayFarmer = () => {

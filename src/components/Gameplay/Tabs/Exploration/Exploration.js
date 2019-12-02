@@ -45,7 +45,7 @@ class Exploration extends Component {
             return <div> <table>
                 <tr><span className='resource'>Area explored: {this.props.storeEverything.exploration_forest}/100</span></tr>
                 <tr>{this.expedition()}</tr>
-                <tr>{this.props.storeEverything.expedition_timer}/{this.props.storeEverything.expedition_timer_max}</tr>
+                {/* <tr>{this.props.storeEverything.expedition_timer}/{this.props.storeEverything.expedition_timer_max}</tr> */}
                 <tr><span className='resource'><figure class="waffle"></figure></span></tr>
             </table>
 

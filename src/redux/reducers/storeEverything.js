@@ -73,8 +73,6 @@ const storeEverything = (state = {}, action) => {
       return { ...state, resource_gardener_reveal: true, resource_science: state.resource_science - state.research_horticulture_cost, research_horticulture: true}
     case 'RESEARCH_MATHEMATICS':
       return { ...state, resource_science: state.resource_science - state.research_mathematics_cost, research_mathematics: true}
-    case 'EXPEDITION':
-      return {...state, exploration_reveal: true}
     case 'RESEARCH_MOBILITY':
       return { ...state, resource_explorer_reveal: true, resource_science: state.resource_science - state.research_mobility_cost, research_mobility: true}
     case 'EXPLORE':

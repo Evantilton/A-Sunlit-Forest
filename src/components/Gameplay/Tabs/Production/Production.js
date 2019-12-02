@@ -6,7 +6,7 @@ class Production extends Component {
     componentDidMount() {
         setInterval(() => {
             this.gatherSunlight();
-        }, 100);
+        }, 300);
 
     }
     state = {
