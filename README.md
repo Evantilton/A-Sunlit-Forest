@@ -28,4 +28,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Thank you to my Instructors Luke, Kris, and Dane at Prime Digital Academy for guidence while I was scoping and coding this project.
-* Thank you to KittensGame and ADarkRoom for the inspiration for this game.  I really recommend you check them out.
+* Thank you to KittensGame and ADarkRoom for the inspiration for this game. 
