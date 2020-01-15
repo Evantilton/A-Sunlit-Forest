@@ -138,14 +138,10 @@ class Research extends Component {
     }
 
     displayMathematics = () => {
-        if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.research_mathematics === false))  {
+        if ((this.props.storeEverything.research_mobility === true)) {
             return <span class="span" onClick={this.buyMathematics}
                 onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
                 Mathematics </span>
-        } else if ((this.props.storeEverything.resource_science_reveal === true) && (this.props.storeEverything.research_mathematics === true)) {
-            return <span class="span" onClick={this.buyMathematics}
-                onMouseOver={this.mathematicsMouseOver} onMouseOut={this.mathematicsMouseOver}>
-                Mathematics (researched) </span>
         }
     }
     displayIrrigation = () => {
@@ -164,10 +160,12 @@ class Research extends Component {
         if (this.props.storeEverything.tab_research_show) {
             return <div>
                 <table>
-                    <tr>{this.displayIrrigation()}</tr>
                     <tr> {this.displayMathematics()} </tr>
-                    <tr> {this.displayGardening()} </tr>
                     <tr> {this.displayUprooting()}</tr>
+                    <tr>{this.displayIrrigation()}</tr>
+                    
+                    <tr> {this.displayGardening()} </tr>
+                    
                 </table>
                 {this.displayIrrigationText()}
                 {this.displayMathematicsText()}

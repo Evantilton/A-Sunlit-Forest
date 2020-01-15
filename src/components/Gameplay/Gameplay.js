@@ -12,9 +12,9 @@ import { connect } from 'react-redux';
 class Gameplay extends Component {
     componentDidMount() {
         this.getEverything();
-        setInterval(() => {
-            this.saveFunction();
-        }, 100000);
+        // setInterval(() => {
+        //     this.saveFunction();
+        // }, 100000);
     }
 
     getEverything() {
