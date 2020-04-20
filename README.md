@@ -11,6 +11,8 @@ Technologies used: React, React-redux, Redux-Sagas, CSS, AJAX, Passport, Postgre
 * Npm run server
 * Npm run client
 
+## Screen Shot
+![screenshot](project-featured.jpg)
 
 ## Technologies Used:
 
