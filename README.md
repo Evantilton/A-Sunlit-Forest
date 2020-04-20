@@ -2,7 +2,6 @@
 
 A Sunlit Forest is a relaxed incremental text-based game where you build and control a colony of sentient trees.
 Focus is on resource gathering, allocation, and management, it can be played in the browser wherein the user can create an account and save their progress.
-Technologies used: React, React-redux, Redux-Sagas, CSS, AJAX, Passport, PostgreSQL, and D3.
 
 ### Installing
 * Fork and clone the repo
@@ -16,7 +15,7 @@ Technologies used: React, React-redux, Redux-Sagas, CSS, AJAX, Passport, Postgre
 
 ## Technologies Used:
 
-Javascript, HTML5, CSS, React, React-redux, Redux-Sagas, CSS, AJAX, Passport, PostgreSQL, Sweetalerts, and D3.
+Javascript, HTML5, CSS, React, React-redux, Redux-Sagas, CSS, AJAX, Passport, PostgreSQL, and D3.
 
 
 ## Authors
